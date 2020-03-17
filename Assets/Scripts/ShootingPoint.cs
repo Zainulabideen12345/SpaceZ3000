@@ -9,6 +9,8 @@ namespace DefaultNamespace
 
         public Vector3 GunEndPoint => transform.position;
 
+        public bool IsMain;
+
         public bool IsActive => isActive;
         
     }
