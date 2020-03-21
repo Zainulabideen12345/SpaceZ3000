@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  IsMain: 1
 --- !u!1 &5174115165948899675
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+  IsMain: 0
 --- !u!1 &8451329948539287919
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,3 +284,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+  IsMain: 0
