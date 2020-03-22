@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ namespace DefaultNamespace
     public class PlayerHitScanShooting : MonoBehaviour
     {
         private Camera _camera;
+        private Coroutine _shootCoroutine;
         [SerializeField] private ShootingPoint[] shootingPoints;
+        [SerializeField] private float rayCastDistance;
 
         private void Start()
         {
@@ -16,7 +19,19 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
+            {
+               _shootCoroutine =  StartCoroutine(Shoot());
+            }
+            else if(Input.GetMouseButtonUp(0))
+            {
+                StopCoroutine(_shootCoroutine);
+            }
+        }
+
+        private IEnumerator Shoot()
+        {
+            while (true)
             {
                 var mouseWorldPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
 
@@ -27,10 +42,11 @@ namespace DefaultNamespace
                 {
                     ShootFromShootPoint(mouseWorldPoint, shootingPoint, mainShootingPoint);
                 }
+                yield return new WaitForSeconds(.25f);
             }
         }
 
-        private static void ShootFromShootPoint(Vector3 mouseWorldPoint, ShootingPoint shootingPoint, ShootingPoint mainShootingPoint)
+        private void ShootFromShootPoint(Vector3 mouseWorldPoint, ShootingPoint shootingPoint, ShootingPoint mainShootingPoint)
         {
             var gunPoint = shootingPoint.GunEndPoint;
             var mainGunPoint = mainShootingPoint.GunEndPoint;
@@ -38,8 +54,9 @@ namespace DefaultNamespace
             var shootPoint = mouseWorldPoint + (gunPoint - mainGunPoint);
             var shootDirection = (shootPoint - gunPoint).normalized;
 
-            Debug.DrawLine(gunPoint, shootPoint, Color.red, .1f);
-            ShootingRaycast.Shoot(shootingPoint.GunEndPoint, shootDirection);
+            // Debug.DrawLine(gunPoint, shootPoint, Color.red, .1f);
+            shootingPoint.RenderBulletTrace(shootPoint);
+            ShootingRaycast.Shoot(gunPoint, shootDirection, rayCastDistance);
         }
     }
 }
