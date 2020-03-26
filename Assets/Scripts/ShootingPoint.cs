@@ -40,6 +40,21 @@ namespace DefaultNamespace
             _currentLinePosition = 0f;
             Invoke(nameof(ResetLineRendererPosition), .2f);
         }
+        
+        public void RenderBulletTraceFromDirection(Vector3 shootDirection, float timeBetweenShots, float rayCastDistance)
+        {
+            _shootPoint = transform.position;
+            _shootDestination = _shootPoint + shootDirection * rayCastDistance;
+            var linePositions = new[]
+            {
+                _shootPoint,
+                _shootDestination
+            };
+            _lineRenderer.SetPositions(linePositions);
+            _distance = rayCastDistance;
+            _currentLinePosition = 0f;
+            Invoke(nameof(ResetLineRendererPosition), timeBetweenShots - .05f);
+        }
 
         private void Update()
         {
@@ -56,7 +71,7 @@ namespace DefaultNamespace
 
         private void ResetLineRendererPosition()
         {
-            var linePositions = new Vector3[]
+            var linePositions = new[]
             {
                 transform.position,
                 transform.position

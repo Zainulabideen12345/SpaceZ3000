@@ -11,7 +11,8 @@ namespace DefaultNamespace
         private Coroutine _shootCoroutine;
         [SerializeField] private ShootingPoint[] shootingPoints;
         [SerializeField] private float rayCastDistance;
-
+        [SerializeField] private float timeBetweenShots = .25f;
+        
         private void Start()
         {
             _camera = Camera.main;
@@ -19,13 +20,17 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-               _shootCoroutine =  StartCoroutine(Shoot());
+                if (_shootCoroutine == null)
+                {
+                    _shootCoroutine =  StartCoroutine(Shoot());
+                }
             }
             else if(Input.GetMouseButtonUp(0))
             {
                 StopCoroutine(_shootCoroutine);
+                _shootCoroutine = null;
             }
         }
 
@@ -42,7 +47,7 @@ namespace DefaultNamespace
                 {
                     ShootFromShootPoint(mouseWorldPoint, shootingPoint, mainShootingPoint);
                 }
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(timeBetweenShots);
             }
         }
 
@@ -53,9 +58,10 @@ namespace DefaultNamespace
 
             var shootPoint = mouseWorldPoint + (gunPoint - mainGunPoint);
             var shootDirection = (shootPoint - gunPoint).normalized;
-
-            // Debug.DrawLine(gunPoint, shootPoint, Color.red, .1f);
-            shootingPoint.RenderBulletTrace(shootPoint);
+            
+            // shootingPoint.RenderBulletTrace(shootPoint);
+            Debug.DrawLine(gunPoint, gunPoint + shootDirection * rayCastDistance, Color.black, .5f);
+            shootingPoint.RenderBulletTraceFromDirection(shootDirection, timeBetweenShots, rayCastDistance);
             ShootingRaycast.Shoot(gunPoint, shootDirection, rayCastDistance);
         }
     }

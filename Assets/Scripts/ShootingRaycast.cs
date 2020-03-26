@@ -11,6 +11,7 @@ namespace DefaultNamespace
             if (raycast.collider)
             {
                 var health = raycast.collider.gameObject.GetComponent<Health>();
+                Debug.Log("hit");
                 health?.DealDamage(20);
             }
         }

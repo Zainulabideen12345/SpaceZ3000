@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  lineRenderSpeed: 5
+  lineRenderSpeed: 3
   IsMain: 1
 --- !u!120 &7483073232585330785
 LineRenderer:
@@ -65,7 +65,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,8 +118,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0.019954205, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key0: {r: 1, g: 0.5663548, b: 0, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -304,6 +304,7 @@ MonoBehaviour:
   - {fileID: 6024460930827011982}
   - {fileID: 1047236992441600226}
   rayCastDistance: 10
+  timeBetweenShots: 0.25
 --- !u!1 &6056528044656330534
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6056528044656330534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.461, y: 0.048, z: 0}
+  m_LocalPosition: {x: -0.461, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5174115165948899673}
@@ -349,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  lineRenderSpeed: 5
+  lineRenderSpeed: 3
   IsMain: 0
 --- !u!120 &2795122682231063326
 LineRenderer:
@@ -369,7 +370,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -422,8 +423,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.5663548, b: 0, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -483,7 +484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8451329948539287919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.459, y: 0.053, z: 0}
+  m_LocalPosition: {x: 0.459, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5174115165948899673}
@@ -502,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  lineRenderSpeed: 5
+  lineRenderSpeed: 3
   IsMain: 0
 --- !u!120 &4750779257728396635
 LineRenderer:
@@ -522,7 +523,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -575,8 +576,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.5663548, b: 0, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

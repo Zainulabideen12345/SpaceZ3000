@@ -15,10 +15,15 @@ public class Health : MonoBehaviour
     {
         if (damage > _currentHealth || _currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
             return;
         }
 
         _currentHealth -= damage;
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

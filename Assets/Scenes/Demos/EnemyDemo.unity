@@ -350,10 +350,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 526748888012328555, guid: d308ba094482a21499943914c3a668ad,
+    - target: {fileID: 2713794892195097264, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
-      propertyPath: m_LocalPosition.y
+      propertyPath: rayCastDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5174115165948899673, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
