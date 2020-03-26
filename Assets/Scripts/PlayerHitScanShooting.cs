@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -7,8 +8,12 @@ namespace DefaultNamespace
     public class PlayerHitScanShooting : MonoBehaviour
     {
         private Camera _camera;
+        private Coroutine _shootCoroutine;
+        [SerializeField] private int damage = 20;
         [SerializeField] private ShootingPoint[] shootingPoints;
-
+        [SerializeField] private float rayCastDistance;
+        [SerializeField] private float timeBetweenShots = .25f;
+        
         private void Start()
         {
             _camera = Camera.main;
@@ -17,6 +22,22 @@ namespace DefaultNamespace
         private void Update()
         {
             if (Input.GetMouseButton(0))
+            {
+                if (_shootCoroutine == null)
+                {
+                    _shootCoroutine =  StartCoroutine(Shoot());
+                }
+            }
+            else if(Input.GetMouseButtonUp(0))
+            {
+                StopCoroutine(_shootCoroutine);
+                _shootCoroutine = null;
+            }
+        }
+
+        private IEnumerator Shoot()
+        {
+            while (true)
             {
                 var mouseWorldPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
 
@@ -27,19 +48,21 @@ namespace DefaultNamespace
                 {
                     ShootFromShootPoint(mouseWorldPoint, shootingPoint, mainShootingPoint);
                 }
+                yield return new WaitForSeconds(timeBetweenShots);
             }
         }
 
-        private static void ShootFromShootPoint(Vector3 mouseWorldPoint, ShootingPoint shootingPoint, ShootingPoint mainShootingPoint)
+        private void ShootFromShootPoint(Vector3 mouseWorldPoint, ShootingPoint shootingPoint, ShootingPoint mainShootingPoint)
         {
             var gunPoint = shootingPoint.GunEndPoint;
             var mainGunPoint = mainShootingPoint.GunEndPoint;
 
             var shootPoint = mouseWorldPoint + (gunPoint - mainGunPoint);
-            var shootDirection = (shootPoint - gunPoint).normalized;
-
-            Debug.DrawLine(gunPoint, shootPoint, Color.red, .1f);
-            ShootingRaycast.Shoot(shootingPoint.GunEndPoint, shootDirection);
+            Vector2 shootDirection = (shootPoint - gunPoint).normalized;
+            
+            // shootingPoint.RenderBulletTrace(shootPoint);
+            shootingPoint.RenderBulletTraceFromDirection(shootDirection, timeBetweenShots, rayCastDistance);
+            ShootingRaycast.ShootSingle(gunPoint, shootDirection, rayCastDistance, damage);
         }
     }
 }
