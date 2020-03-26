@@ -57,10 +57,10 @@ namespace DefaultNamespace
             var mainGunPoint = mainShootingPoint.GunEndPoint;
 
             var shootPoint = mouseWorldPoint + (gunPoint - mainGunPoint);
-            var shootDirection = (shootPoint - gunPoint).normalized;
+            Vector2 shootDirection = (shootPoint - gunPoint).normalized;
             
             // shootingPoint.RenderBulletTrace(shootPoint);
-            Debug.DrawLine(gunPoint, gunPoint + shootDirection * rayCastDistance, Color.black, .5f);
+            Debug.DrawLine(gunPoint, (Vector2)gunPoint + shootDirection * rayCastDistance, Color.black, .5f);
             shootingPoint.RenderBulletTraceFromDirection(shootDirection, timeBetweenShots, rayCastDistance);
             ShootingRaycast.Shoot(gunPoint, shootDirection, rayCastDistance);
         }
