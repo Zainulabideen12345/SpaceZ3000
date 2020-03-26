@@ -7,24 +7,22 @@ namespace DefaultNamespace
     public class ShootingPoint : MonoBehaviour
     {
         [SerializeField] private bool isActive = false;
+        [SerializeField] private bool isMain;
         [SerializeField] private float lineRenderSpeed = 0.1f;
-        private LineRenderer _lineRenderer;
-
         
+        private LineRenderer _lineRenderer;
         private float _currentLinePosition;
         private float _distance;
         private Vector3 _shootDestination, _shootPoint;
+        
+        public Vector3 GunEndPoint => transform.position;
+        public bool IsActive => isActive;
+        public bool IsMain => isMain;
 
         private void Start()
         {
             _lineRenderer = GetComponent<LineRenderer>();
         }
-
-        public Vector3 GunEndPoint => transform.position;
-
-        public bool IsMain;
-
-        public bool IsActive => isActive;
 
         public void RenderBulletTrace(Vector3 mousePosition)
         {

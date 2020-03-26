@@ -350,11 +350,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2713794892195097264, guid: d308ba094482a21499943914c3a668ad,
-        type: 3}
-      propertyPath: rayCastDistance
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2795122682231063326, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
@@ -460,19 +455,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5174115165948899679, guid: d308ba094482a21499943914c3a668ad,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7902272921661894564, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
       propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7902272921661894564, guid: d308ba094482a21499943914c3a668ad,
-        type: 3}
-      propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8451329948539287919, guid: d308ba094482a21499943914c3a668ad,

@@ -9,6 +9,7 @@ namespace DefaultNamespace
     {
         private Camera _camera;
         private Coroutine _shootCoroutine;
+        [SerializeField] private int damage = 20;
         [SerializeField] private ShootingPoint[] shootingPoints;
         [SerializeField] private float rayCastDistance;
         [SerializeField] private float timeBetweenShots = .25f;
@@ -60,9 +61,8 @@ namespace DefaultNamespace
             Vector2 shootDirection = (shootPoint - gunPoint).normalized;
             
             // shootingPoint.RenderBulletTrace(shootPoint);
-            Debug.DrawLine(gunPoint, (Vector2)gunPoint + shootDirection * rayCastDistance, Color.black, .5f);
             shootingPoint.RenderBulletTraceFromDirection(shootDirection, timeBetweenShots, rayCastDistance);
-            ShootingRaycast.Shoot(gunPoint, shootDirection, rayCastDistance);
+            ShootingRaycast.ShootSingle(gunPoint, shootDirection, rayCastDistance, damage);
         }
     }
 }

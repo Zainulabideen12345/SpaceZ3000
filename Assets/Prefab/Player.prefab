@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  isMain: 1
   lineRenderSpeed: 3
-  IsMain: 1
 --- !u!120 &7483073232585330785
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -299,12 +299,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f42aeb7ee24a34ac0041d2709e96dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
   shootingPoints:
   - {fileID: 357570289807250689}
   - {fileID: 6024460930827011982}
   - {fileID: 1047236992441600226}
-  rayCastDistance: 10
-  timeBetweenShots: 0.25
+  rayCastDistance: 20
+  timeBetweenShots: 0.3
 --- !u!1 &6056528044656330534
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,8 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+  isMain: 0
   lineRenderSpeed: 3
-  IsMain: 0
 --- !u!120 &2795122682231063326
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -503,8 +504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+  isMain: 0
   lineRenderSpeed: 3
-  IsMain: 0
 --- !u!120 &4750779257728396635
 LineRenderer:
   m_ObjectHideFlags: 0
