@@ -254,6 +254,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  dashDistance: 3
+  dashTime: 0.2
+  dashSpeed: 3
+  distanceBetweenImages: 0.1
+  dashCooldown: 3
 --- !u!114 &5174115165948899678
 MonoBehaviour:
   m_ObjectHideFlags: 0
