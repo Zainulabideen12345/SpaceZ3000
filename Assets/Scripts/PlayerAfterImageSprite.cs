@@ -22,13 +22,13 @@ public class PlayerAfterImageSprite : MonoBehaviour
    private void OnEnable()
    {
       _spriteRenderer = GetComponent<SpriteRenderer>();
-      // _playerInitialPos = GameObject.FindGameObjectWithTag("Player").transform.position;
       _player = GameObject.FindGameObjectWithTag("Player").transform;
+      _playerInitialPos = _player.position;
       _playerSpriteRenderer = _player.GetComponent<SpriteRenderer>();
 
       _alpha = alphaSet;
       _spriteRenderer.sprite = _playerSpriteRenderer.sprite;
-      transform.position = _player.position;
+      transform.position = _playerInitialPos;
       transform.rotation = _player.rotation;
       _timeActivated = Time.time;
    }
@@ -38,6 +38,8 @@ public class PlayerAfterImageSprite : MonoBehaviour
       _alpha *= alphaMultipier;
       _color = new Color(1f, 1f, 1f, _alpha);
       _spriteRenderer.color = _color;
+
+      transform.position = _playerInitialPos;
 
       if (Time.time >= _timeActivated + activeTime)
       {
