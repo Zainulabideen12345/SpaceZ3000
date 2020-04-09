@@ -6,12 +6,24 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float dashDistance = 10f;
 
     private Camera _camera;
     private Rigidbody2D _rigidbody;
 
     private Vector2 _movement;
     private Vector3 _mousePosition;
+
+    //Dashing
+    private bool _isDashing;
+    [SerializeField]private float dashTime;
+    private float _dashTimeLeft;
+    private Vector2 _lastImagePos;
+    private float _lastDash = -100f;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float distanceBetweenImages;
+    [SerializeField] private float dashCooldown;
+    
 
     // Start is called before the first frame update
     private void Start()
@@ -26,12 +38,14 @@ public class PlayerController : MonoBehaviour
         _movement.x = Input.GetAxis("Horizontal");
         _movement.y = Input.GetAxis("Vertical");
         _mousePosition = Input.mousePosition;
+        CheckDash();
     }
 
     private void FixedUpdate()
     {
         MoveRigidBody();
         RotateRigidBody();
+        Dash();
     }
 
     private void Move()
@@ -49,6 +63,47 @@ public class PlayerController : MonoBehaviour
     {
         var movement = _movement * (moveSpeed * Time.fixedDeltaTime);
         _rigidbody.MovePosition(_rigidbody.position + movement);
+    }
+    
+    private void CheckDash()
+    {
+        Debug.Log(Input.GetKeyDown("space") && Time.time >= (_lastDash + dashCooldown));
+        if (Input.GetKeyDown("space") && Time.time >= (_lastDash + dashCooldown))
+        {
+           AttemptToDash();
+        }
+    }
+
+    private void AttemptToDash()
+    {
+        _isDashing = true;
+        _dashTimeLeft = dashTime;
+        _lastDash = Time.time;
+        
+        PlayerAfterImagePool.Instance.GetFromPool();
+        _lastImagePos = transform.position;
+    }
+
+    private void Dash()
+    {
+        if (!_isDashing) return;
+        if (_dashTimeLeft <= 0) _isDashing = false;
+
+        var dash = _movement * (dashSpeed * dashTime);
+        _rigidbody.MovePosition(_rigidbody.position + dash);
+        _dashTimeLeft -= Time.fixedDeltaTime;
+
+        if (!(Mathf.Abs(Vector2.Distance(transform.position, _lastImagePos)) > distanceBetweenImages)) return;
+        
+        PlayerAfterImagePool.Instance.GetFromPool();
+        _lastImagePos = transform.position;
+    }
+
+    private void TeleportDash()
+    {
+        var dash = _movement * dashDistance;
+        _rigidbody.MovePosition(_rigidbody.position + dash);
+        _isDashing = false;
     }
 
     private void RotateRigidBody()
