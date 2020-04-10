@@ -8,7 +8,6 @@ namespace DefaultNamespace
 {
     public class PlayerHitScanShooting : MonoBehaviour
     {
-        private Camera _camera;
         private Coroutine _shootCoroutine;
         [SerializeField] private int damage = 20;
         [SerializeField] private ShootingPoint[] shootingPoints;
@@ -17,25 +16,18 @@ namespace DefaultNamespace
         
         //Input
         private PlayerInput _playerInput;
-        private Vector2 _mousePosition;
         private Rigidbody2D _rigidBody;
-        private bool _isMouse;
+        private float _nextShotTime = -100f;
 
         private void Awake()
         {
             _playerInput = new PlayerInput();
             _playerInput.PlayerControls.ShootMain.performed += ctx => StartShooting();
             _playerInput.PlayerControls.ShootMain.canceled += ctx => StopShooting();
-            _playerInput.PlayerControls.Aim.performed += ctx =>
-            {
-                _isMouse = ctx.control.device == Mouse.current;
-                _mousePosition = ctx.ReadValue<Vector2>();
-            }; 
         }
 
         private void Start()
         {
-            _camera = Camera.main;
             _rigidBody = GetComponent<Rigidbody2D>();
         }
         
@@ -49,32 +41,20 @@ namespace DefaultNamespace
             _playerInput.Disable();
         }
 
-        private void Update()
-        {
-            // if (Input.GetMouseButton(0))
-            // {
-            //     if (_shootCoroutine == null)
-            //     {
-            //         _shootCoroutine =  StartCoroutine(Shoot());
-            //     }
-            // }
-            // else if(Input.GetMouseButtonUp(0))
-            // {
-            //     StopCoroutine(_shootCoroutine);
-            //     _shootCoroutine = null;
-            // }
-        }
-
         private void StartShooting()
         {
-            if (_shootCoroutine == null)
+            if (_shootCoroutine == null && Time.time > (_nextShotTime + timeBetweenShots))
             {
                 _shootCoroutine =  StartCoroutine(Shoot());
             }
+
+            _nextShotTime = Time.time;
         }
 
         private void StopShooting()
         {
+            if(_shootCoroutine == null) return;
+            
             StopCoroutine(_shootCoroutine);
             _shootCoroutine = null;
         }
@@ -83,8 +63,6 @@ namespace DefaultNamespace
         {
             while (true)
             {
-                // var mouseWorldPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
-                // var mouseWorldPoint = (_isMouse) ? (Vector2) _camera.ScreenToWorldPoint(_mousePosition) : _mousePosition;
                 var mouseWorldPoint = _rigidBody.position;
                 
 

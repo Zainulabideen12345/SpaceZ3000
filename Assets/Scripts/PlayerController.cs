@@ -6,28 +6,29 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float dashDistance = 10f;
-
     private Camera _camera;
     private Rigidbody2D _rigidbody;
     
     //Movement
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float dashDistance = 10f;
     private PlayerInput _playerInput;
     private Vector2 _movement;
     private Vector2 _mousePosition;
     private bool _isMouse;
 
     //Dashing
-    private bool _isDashing;
-    [SerializeField]private float dashTime;
-    private float _dashTimeLeft;
-    private Vector2 _lastImagePos;
-    private float _lastDash = -100f;
+    [Header("Dashing")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float distanceBetweenImages;
     [SerializeField] private float dashCooldown;
-
+    [SerializeField]private float dashTime;
+    private bool _isDashing;
+    private float _dashTimeLeft;
+    private Vector2 _lastImagePos;
+    private float _lastDash = -100f;
+    
     private void Awake()
     {
         _playerInput = new PlayerInput();
@@ -61,12 +62,6 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        // CheckDash();
-    }
-
     private void FixedUpdate()
     {
         MoveRigidBody();
@@ -93,8 +88,6 @@ public class PlayerController : MonoBehaviour
     
     private void CheckDash()
     {
-        // Debug.Log(Input.GetKeyDown("space") && Time.time >= (_lastDash + dashCooldown));
-        // if (Input.GetKeyDown("space") && Time.time >= (_lastDash + dashCooldown))
         if (Time.time >= (_lastDash + dashCooldown))
         {
            AttemptToDash();
