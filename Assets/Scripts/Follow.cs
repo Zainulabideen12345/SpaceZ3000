@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Pathfinding;
 
 public class Follow : MonoBehaviour
@@ -48,20 +46,27 @@ public class Follow : MonoBehaviour
             return;
 
         Vector2 direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
 
-        _rb.AddForce(force);
-
-        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
-
-        if (distance < nextWaypointDistance)
+        if (_path.GetTotalLength() >= 8f)
         {
-            _currentWaypoint++;
+            Vector2 force = direction * speed * Time.deltaTime;
+
+            _rb.AddForce(force);
+
+            float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
+
+            if (distance < nextWaypointDistance)
+            {
+                _currentWaypoint++;
+            }
+
         }
 
+ /*       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + SPRITE_ANGLE_DIFF;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + SPRITE_ANGLE_DIFF;
 
-        _rb.rotation = angle;
+        float angleDiff = _rb.rotation - angle;
+
+        _rb.rotation = angle;*/
     }
 }
