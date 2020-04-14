@@ -2,9 +2,9 @@
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float attackSpeed;
-    [SerializeField] float projectileSpeed;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float projectileSpeed;
 
     private const int SPRITE_ANGLE_DIFF = 270;
 

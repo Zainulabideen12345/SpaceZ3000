@@ -184,6 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 200
+  displayHealthBar: 1
+  healthBarPrefab: {fileID: 438818151482495383, guid: 73439902fac2bcd4b8142ea5e988bd52,
+    type: 3}
 --- !u!114 &4032485173242092281
 MonoBehaviour:
   m_ObjectHideFlags: 0
