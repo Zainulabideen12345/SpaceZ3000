@@ -1,11 +1,21 @@
+using System;
+using UnityEngine;
+
 namespace DefaultNamespace
 {
+    [Serializable]
     public class BaseHealth
     {
-        private int _initialHeath;
+        [SerializeField]private int _initialHeath;
+        [SerializeField] protected Color _healthBarColor = Color.green;
         private int _currentHealth;
 
-        public int CurrentHealth => _currentHealth;
+        public int currentHealth => _currentHealth;
+        public int initialHeath => _initialHeath;
+        public Color healthBarColor => _healthBarColor;
+
+
+        public event EventHandler HealthAdded;
 
         public BaseHealth(int initialHeath)
         {
@@ -31,6 +41,12 @@ namespace DefaultNamespace
         public void AddHealth(int health)
         {
             _currentHealth += health;
+            HealthAdded?.Invoke(this, EventArgs.Empty);
+        }
+
+        public virtual void UpdateShaderColor(Material material)
+        {
+            material.SetColor("_HealthColor", healthBarColor);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DefaultNamespace
 
         private int _currentHealth;
         private HealthBar _healthBar;
-        private List<BaseHealth> _healths;
+        public List<BaseHealth> _healths;
         private Dictionary<Guid, Coroutine> _regenerations;
 
         private void Start()
@@ -33,6 +33,7 @@ namespace DefaultNamespace
                 new RegenerativeHealth(initialShieldHealth, regenerateCooldown, regenerateAmount),
                 new BaseHealth(initialBaseHealth)
             };
+            _healths.ForEach(h => h.HealthAdded += OnHealthAdded);
             _regenerations = new Dictionary<Guid, Coroutine>();
         }
 
@@ -43,7 +44,7 @@ namespace DefaultNamespace
 
         public void DealDamage(int damage)
         {
-            if (damage > _healths.Sum(h => h.CurrentHealth) || _healths.TrueForAll(h => h.IsHealthDepleted()))
+            if (damage > _healths.Sum(h => h.currentHealth) || _healths.TrueForAll(h => h.IsHealthDepleted()))
             {
                 Die();
                 return;
@@ -92,10 +93,16 @@ namespace DefaultNamespace
             _regenerations = new Dictionary<Guid, Coroutine>();
         }
 
+        private void OnHealthAdded(object sender, EventArgs e)
+        {
+            UpdateHealthBar();
+        }
+
         private void UpdateHealthBar()
         {
             if(!_healthBar) return;
-            _healthBar.UpdateHealthBar(_currentHealth, initialBaseHealth);
+            // _healthBar.UpdateHealthBar(_currentHealth, initialBaseHealth);
+            _healthBar.UpdateHealthBar(_healths);
         }
 
         private void Die()

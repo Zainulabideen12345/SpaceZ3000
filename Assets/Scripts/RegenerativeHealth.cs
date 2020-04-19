@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
+    [Serializable]
     public class RegenerativeHealth : BaseHealth
     {
         public float LastTimeDamageTaken;
-        private float regenerateCooldown;
-        private int _regenerateAmount;
+        [SerializeField]private float regenerateCooldown;
+        [SerializeField]private int _regenerateAmount;
         public Guid Guid;
 
         public bool CanRegenerate() => (Time.time >= LastTimeDamageTaken + regenerateCooldown) && !IsFullHealth();
@@ -19,6 +20,7 @@ namespace DefaultNamespace
             Guid = Guid.NewGuid();
             this.regenerateCooldown = regenerateCooldown;
             _regenerateAmount = regenerateAmount;
+            _healthBarColor = Color.blue;
         }
 
         public IEnumerator RegenerateAmount()
@@ -34,6 +36,11 @@ namespace DefaultNamespace
         {
             LastTimeDamageTaken = Time.time;
             return base.TakeDamage(damage);
+        }
+
+        public override void UpdateShaderColor(Material material)
+        {
+            material.SetColor("_ShieldColor", healthBarColor);
         }
     }
 }

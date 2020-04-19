@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
     private void UpdateHealthBar()
     {
         if(!_healthBar) return;
-        _healthBar.UpdateHealthBar(_currentHealth, initialHealth);
+        // _healthBar.UpdateHealthBar(_currentHealth, initialHealth);
     }
 
     private void Die()
