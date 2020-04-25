@@ -21,15 +21,20 @@ public class Health : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        if (damage > _currentHealth || _currentHealth <= 0)
+        if (!HasShield())
         {
-            Die();
-            return;
+            if(damage > _currentHealth || _currentHealth <= 0)
+            {
+                Die();
+                return;
+            }
+
+
+
+            _currentHealth -= damage;
+
+            UpdateHealthBar();
         }
-
-        _currentHealth -= damage;
-
-        UpdateHealthBar();
     }
 
     private void Die()
@@ -65,5 +70,18 @@ public class Health : MonoBehaviour
             _healthBar.transform.position = new Vector3(transform.position.x, transform.position.y + 1f);
             _healthBar.transform.rotation = Quaternion.identity;
         }
+    }
+
+    public bool HasShield()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Shield"))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
