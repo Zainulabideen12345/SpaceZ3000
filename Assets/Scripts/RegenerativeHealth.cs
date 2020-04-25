@@ -8,13 +8,13 @@ namespace DefaultNamespace
     public class RegenerativeHealth : BaseHealth
     {
         public float LastTimeDamageTaken;
-        [SerializeField]private float regenerateCooldown;
-        [SerializeField]private int _regenerateAmount;
+        private float regenerateCooldown;
+        private int _regenerateAmount;
         public Guid Guid;
 
         public bool CanRegenerate() => (Time.time >= LastTimeDamageTaken + regenerateCooldown) && !IsFullHealth();
 
-        public RegenerativeHealth(int initialHeath, float regenerateCooldown, int regenerateAmount) : base(initialHeath)
+        public RegenerativeHealth(int initialHeath, Color healthBarColor, float regenerateCooldown, int regenerateAmount) : base(initialHeath, healthBarColor)
         {
             LastTimeDamageTaken = -100f;
             Guid = Guid.NewGuid();

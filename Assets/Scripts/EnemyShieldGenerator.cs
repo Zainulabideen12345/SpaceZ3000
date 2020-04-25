@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class EnemyShieldGenerator : MonoBehaviour
@@ -19,7 +20,7 @@ public class EnemyShieldGenerator : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies){
-            if (!enemy.GetComponent<Health>().HasShield())
+            if (!enemy.GetComponent<HealthManager>().HasShield())
             {
                 _shields.Add(Instantiate(shieldPrefab, enemy.transform));
             }

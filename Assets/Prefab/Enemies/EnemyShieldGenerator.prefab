@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8812571673403355183}
   - component: {fileID: 8812571673403355168}
   - component: {fileID: 8812571673403355170}
-  - component: {fileID: 8812571673403355171}
+  - component: {fileID: 5877484046064102274}
+  - component: {fileID: 2601611879525032844}
   m_Layer: 0
   m_Name: EnemyShieldGenerator
   m_TagString: Untagged
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldPrefab: {fileID: 4834119918929341832, guid: 6ae217edc9300b149b602fe0d992fbc4,
     type: 3}
---- !u!114 &8812571673403355171
+--- !u!114 &5877484046064102274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,10 +146,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8812571673403355174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b207c0ddabb0b3498c728fee3e3192a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 200
+  healthConfigs:
+  - {fileID: 11400000, guid: 24aae38fa1e4eca4aa0ca21b05ef6c7c, type: 2}
+--- !u!114 &2601611879525032844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812571673403355174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c298c3fc8094d0480cb867a8540af72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   displayHealthBar: 1
   healthBarPrefab: {fileID: 438818151482495383, guid: 73439902fac2bcd4b8142ea5e988bd52,
     type: 3}

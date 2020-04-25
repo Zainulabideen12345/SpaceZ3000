@@ -6,8 +6,8 @@ namespace DefaultNamespace
     [Serializable]
     public class BaseHealth
     {
-        [SerializeField]private int _initialHeath;
-        [SerializeField] protected Color _healthBarColor = Color.green;
+        private int _initialHeath;
+        protected Color _healthBarColor = Color.green;
         private int _currentHealth;
 
         public int currentHealth => _currentHealth;
@@ -17,10 +17,11 @@ namespace DefaultNamespace
 
         public event EventHandler HealthAdded;
 
-        public BaseHealth(int initialHeath)
+        public BaseHealth(int initialHeath, Color healthBarColor)
         {
             _initialHeath = initialHeath;
             _currentHealth = initialHeath;
+            _healthBarColor = healthBarColor;
         }
 
         public bool IsHealthDepleted() => _currentHealth <= 0;

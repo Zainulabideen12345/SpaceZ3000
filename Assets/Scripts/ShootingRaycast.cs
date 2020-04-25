@@ -20,7 +20,7 @@ namespace DefaultNamespace
             foreach (var raycastHit2D in raycast)
             {
                 if (!raycastHit2D.collider) continue;
-                var health = raycastHit2D.collider.gameObject.GetComponent<Health>();
+                var health = raycastHit2D.collider.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(damage);
             }
         }

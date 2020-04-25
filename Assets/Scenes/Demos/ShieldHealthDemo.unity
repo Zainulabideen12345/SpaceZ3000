@@ -1127,49 +1127,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4032485173242092280, guid: 91b221712684e074a8a824948cc6d91f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91b221712684e074a8a824948cc6d91f, type: 3}
---- !u!1 &1294513205 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4032485173242092283, guid: 91b221712684e074a8a824948cc6d91f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1294513204}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1294513206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294513205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialBaseHealth: 200
-  initialShieldHealth: 100
-  regenerateCooldown: 3
-  regenerateAmount: 10
-  displayHealthBar: 1
-  healthBarPrefab: {fileID: 0}
-  helt: []
-  _healths: []
-  references:
-    version: 1
---- !u!114 &1294513207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294513205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c298c3fc8094d0480cb867a8540af72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayHealthBar: 1
-  healthBarPrefab: {fileID: 438818151482495383, guid: 73439902fac2bcd4b8142ea5e988bd52,
-    type: 3}
 --- !u!1001 &1354339486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1258,16 +1215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBaseHealth: 200
-  initialShieldHealth: 50
-  regenerateCooldown: 3
-  regenerateAmount: 10
   displayHealthBar: 1
   healthBarPrefab: {fileID: 0}
-  helt: []
-  _healths: []
-  references:
-    version: 1
+  healthConfigs: []
 --- !u!114 &1354339489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,20 +1458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBaseHealth: 200
-  initialShieldHealth: 50
-  regenerateCooldown: 3
-  regenerateAmount: 10
   displayHealthBar: 1
   healthBarPrefab: {fileID: 0}
-  helt: []
-  _healths:
-  - _initialHeath: 0
-    _healthBarColor: {r: 0, g: 0, b: 0, a: 0}
-  - _initialHeath: 0
-    _healthBarColor: {r: 0, g: 0, b: 0, a: 0}
-  references:
-    version: 1
+  healthConfigs: []
 --- !u!1 &2123458832
 GameObject:
   m_ObjectHideFlags: 0

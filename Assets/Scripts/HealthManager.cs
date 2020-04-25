@@ -1,27 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     public class HealthManager : MonoBehaviour
     {
-        [SerializeField] private bool displayHealthBar = true;
-        [SerializeField] private GameObject healthBarPrefab;
+        [SerializeField] private List<BaseHealthConfig> healthConfigs;
         
         private HealthBar _healthBar;
-        public List<BaseHealth> _healths;
+        private List<BaseHealth> _healths;
         private Dictionary<Guid, Coroutine> _regenerations;
 
         private void Start()
         {
             _healthBar = GetComponent<HealthBar>();
-            _healths = new List<BaseHealth>
-            {
-                new RegenerativeHealth(50, 1f, 1),
-                new BaseHealth(200)
-            };
+            InitializeHealthList();
             _healths.ForEach(h => h.HealthAdded += OnHealthAdded);
             _regenerations = new Dictionary<Guid, Coroutine>();
         }
@@ -31,8 +27,15 @@ namespace DefaultNamespace
             Regenerate();
         }
 
+        private void InitializeHealthList()
+        {
+            _healths = healthConfigs.Select(healthConfig => healthConfig.CreateHealth()).ToList();
+        }
+
         public void DealDamage(int damage)
         {
+            if(HasShield()) return;
+            
             if (damage > _healths.Sum(h => h.currentHealth) || _healths.TrueForAll(h => h.IsHealthDepleted()))
             {
                 Die();
@@ -96,6 +99,19 @@ namespace DefaultNamespace
         private void Die()
         {
             Destroy(gameObject);
+        }
+        
+        public bool HasShield()
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.CompareTag("Shield"))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
