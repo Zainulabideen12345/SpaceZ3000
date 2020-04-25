@@ -27,7 +27,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
-            Debug.Log("hit!");
+            // Debug.Log("hit!");
         }
         else if (collision.gameObject.GetComponent<Enemy>())
         {

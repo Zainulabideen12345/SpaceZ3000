@@ -9,7 +9,7 @@ namespace DefaultNamespace
             var raycast = Physics2D.Raycast(shootPosition, shootDirection, distance);
 
             if (!raycast.collider) return;
-            var health = raycast.collider.gameObject.GetComponent<Health>();
+            var health = raycast.collider.gameObject.GetComponent<HealthManager>();
             health?.DealDamage(damage);
         }
 
@@ -20,7 +20,7 @@ namespace DefaultNamespace
             foreach (var raycastHit2D in raycast)
             {
                 if (!raycastHit2D.collider) continue;
-                var health = raycastHit2D.collider.gameObject.GetComponent<Health>();
+                var health = raycastHit2D.collider.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(damage);
             }
         }
