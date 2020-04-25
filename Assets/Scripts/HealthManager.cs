@@ -5,33 +5,22 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class ShieldHealth : MonoBehaviour
+    public class HealthManager : MonoBehaviour
     {
-        [Header("HealthAmount")]
-        [SerializeField] private int initialBaseHealth = 200;
-        [SerializeField] private int initialShieldHealth = 50;
-        
-
-        [Header("Regeneration")] 
-        [SerializeField] private float regenerateCooldown = 1f;
-        [SerializeField] private int regenerateAmount = 1;
-        
         [SerializeField] private bool displayHealthBar = true;
         [SerializeField] private GameObject healthBarPrefab;
-
-        private int _currentHealth;
+        
         private HealthBar _healthBar;
         public List<BaseHealth> _healths;
         private Dictionary<Guid, Coroutine> _regenerations;
 
         private void Start()
         {
-            _currentHealth = initialBaseHealth;
             _healthBar = GetComponent<HealthBar>();
             _healths = new List<BaseHealth>
             {
-                new RegenerativeHealth(initialShieldHealth, regenerateCooldown, regenerateAmount),
-                new BaseHealth(initialBaseHealth)
+                new RegenerativeHealth(50, 1f, 1),
+                new BaseHealth(200)
             };
             _healths.ForEach(h => h.HealthAdded += OnHealthAdded);
             _regenerations = new Dictionary<Guid, Coroutine>();
@@ -101,7 +90,6 @@ namespace DefaultNamespace
         private void UpdateHealthBar()
         {
             if(!_healthBar) return;
-            // _healthBar.UpdateHealthBar(_currentHealth, initialBaseHealth);
             _healthBar.UpdateHealthBar(_healths);
         }
 

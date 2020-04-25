@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [RequireComponent(typeof(ShieldHealth))]
+    [RequireComponent(typeof(HealthManager))]
     public class HealthBar : MonoBehaviour
     {
         [SerializeField] private bool displayHealthBar = true;
@@ -20,29 +20,20 @@ namespace DefaultNamespace
         {
             UpdateHealthBarPosition();
         }
-
-        // public void UpdateHealthBar(int currentHealth, int initialHealth)
-        // {
-        //     if (!displayHealthBar) return;
-        //     if (_healthBar == null)
-        //     {
-        //         CreateHealthBar();
-        //     }
-        //     _bar.localScale = new Vector3((float)currentHealth / initialHealth, 1f);
-        // }
+        
         public void UpdateHealthBar(List<BaseHealth> healths)
         {
             if (!displayHealthBar) return;
             if (_healthBar == null)
             {
-                CreateHealthBar(healths.Count());
+                CreateHealthBar();
             }
             var initialHealth = healths.Sum(h => h.initialHeath);
             var currentHealth = healths.Sum(h => h.currentHealth);
             UpdateGradient(healths, currentHealth);
             _bar.localScale = new Vector3((float)currentHealth / initialHealth, 1f);
         }
-        private void CreateHealthBar(int healths)
+        private void CreateHealthBar()
         {
             _healthBar = Instantiate(healthBarPrefab, GetComponent<Transform>(), true);
             _bar = _healthBar.transform.Find(BarName);
