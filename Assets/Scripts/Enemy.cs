@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
 
-        gameObject.AddComponent(typeof (AIDestinationSetter));
+        gameObject.AddComponent<AIDestinationSetter>();
         GetComponent<AIDestinationSetter>().target = _player.transform;
 
         InvokeRepeating(nameof(Shoot), .5f, 1f / attackSpeed);
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Shoot()
+   private void Shoot()
     {
         GameObject bullet1 = Instantiate(bulletPrefab, transform.GetChild(0).transform.position, transform.rotation) as GameObject;
         GameObject bullet2 = Instantiate(bulletPrefab, transform.GetChild(1).transform.position, transform.rotation) as GameObject;

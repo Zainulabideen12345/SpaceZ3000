@@ -1,44 +1,87 @@
-﻿using DefaultNamespace;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] protected int initialHealth = 200;
+    [SerializeField] private int initialHealth = 200;
     [SerializeField] private bool displayHealthBar = true;
     [SerializeField] private GameObject healthBarPrefab;
 
     private int _currentHealth;
-    private HealthBar _healthBar;
+    private GameObject _healthBar;
 
     void Start()
     {
         _currentHealth = initialHealth;
-        _healthBar = GetComponent<HealthBar>();
     }
-    
+
+    private void FixedUpdate()
+    {
+        UpdateHealthBarPosition();
+    }
 
     public void DealDamage(int damage)
     {
-        if (damage > _currentHealth || _currentHealth <= 0)
+        if (!HasShield())
         {
-            Die();
-            return;
+            if(damage > _currentHealth || _currentHealth <= 0)
+            {
+                Die();
+                return;
+            }
+
+
+
+            _currentHealth -= damage;
+
+            UpdateHealthBar();
         }
-
-        _currentHealth -= damage;
-
-        UpdateHealthBar();
-    }
-
-    private void UpdateHealthBar()
-    {
-        if(!_healthBar) return;
-        // _healthBar.UpdateHealthBar(_currentHealth, initialHealth);
     }
 
     private void Die()
     {
         Destroy(gameObject);
     }
-    
+
+   
+    private void UpdateHealthBar()
+    {
+        if (displayHealthBar)
+        {
+            if (_healthBar == null)
+            {
+                CreateHealthBar();
+            }
+
+            _healthBar.transform.Find("Bar").localScale = new Vector3((float)_currentHealth / initialHealth, 1f);
+        }
+
+    }
+    private void CreateHealthBar()
+    {
+        _healthBar = Instantiate(healthBarPrefab) as GameObject;
+        _healthBar.transform.SetParent(GetComponent<Transform>());
+        UpdateHealthBarPosition();
+    }
+
+    private void UpdateHealthBarPosition()
+    {
+        if (_healthBar != null)
+        {
+            _healthBar.transform.position = new Vector3(transform.position.x, transform.position.y + 1f);
+            _healthBar.transform.rotation = Quaternion.identity;
+        }
+    }
+
+    public bool HasShield()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Shield"))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
