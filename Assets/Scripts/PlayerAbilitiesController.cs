@@ -41,7 +41,7 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     private IEnumerator UltimateMissile()
     {
-        for (MissileAmount = 1; MissileAmount <= 9; MissileAmount++)
+        for (int i = 1;i<= MissileAmount;i++)
         {
             GameObject Ulti = Instantiate(missilePrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
 
