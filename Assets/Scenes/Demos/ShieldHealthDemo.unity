@@ -1051,8 +1051,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135769786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1.9, y: 1.9, z: 0}
+  m_LocalPosition: {x: 0.384, y: 0.086, z: 1}
+  m_LocalScale: {x: 2.0373757, y: 2.248992, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1064,6 +1064,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399338787079642977, guid: 91b221712684e074a8a824948cc6d91f,
+        type: 3}
+      propertyPath: ShootingRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4032485173242092283, guid: 91b221712684e074a8a824948cc6d91f,
         type: 3}
       propertyPath: m_Name
@@ -1134,6 +1139,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399338787079642977, guid: 91b221712684e074a8a824948cc6d91f,
+        type: 3}
+      propertyPath: ShootingRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4032485173242092283, guid: 91b221712684e074a8a824948cc6d91f,
         type: 3}
       propertyPath: m_Name
@@ -1142,12 +1152,12 @@ PrefabInstance:
     - target: {fileID: 4032485173242092284, guid: 91b221712684e074a8a824948cc6d91f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.91
+      value: 7.54
       objectReference: {fileID: 0}
     - target: {fileID: 4032485173242092284, guid: 91b221712684e074a8a824948cc6d91f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.03
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 4032485173242092284, guid: 91b221712684e074a8a824948cc6d91f,
         type: 3}
@@ -1215,8 +1225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayHealthBar: 1
-  healthBarPrefab: {fileID: 0}
   healthConfigs: []
 --- !u!114 &1354339489
 MonoBehaviour:
@@ -1281,6 +1289,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1857789932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 526748888012328555, guid: d308ba094482a21499943914c3a668ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1940593673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1940593673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1296,12 +1310,12 @@ PrefabInstance:
     - target: {fileID: 5174115165948899673, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -4.02
       objectReference: {fileID: 0}
     - target: {fileID: 5174115165948899673, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -6.28
       objectReference: {fileID: 0}
     - target: {fileID: 5174115165948899673, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
@@ -1355,6 +1369,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d308ba094482a21499943914c3a668ad, type: 3}
+--- !u!1 &1940593674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5174115165948899675, guid: d308ba094482a21499943914c3a668ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1940593673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1940593675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940593674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9ff211dece68a46a69a2600e07b973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShootingPoint_Mid: {fileID: 1857789932}
+  missilePrefab: {fileID: 3441015442370058357, guid: 4e5360b7462a0e44ca4a87afbc8adf87,
+    type: 3}
+  haloPrefab: {fileID: 880043136441965841, guid: 07bdaf48da9f44f4bbd80e3a2d4af4d8,
+    type: 3}
+  MissileAmount: 5
+  TimeBetweenMissiles: 1
 --- !u!1001 &1967828477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1362,6 +1401,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399338787079642977, guid: 91b221712684e074a8a824948cc6d91f,
+        type: 3}
+      propertyPath: ShootingRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4032485173242092283, guid: 91b221712684e074a8a824948cc6d91f,
         type: 3}
       propertyPath: m_Name
@@ -1458,8 +1502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayHealthBar: 1
-  healthBarPrefab: {fileID: 0}
   healthConfigs: []
 --- !u!1 &2123458832
 GameObject:

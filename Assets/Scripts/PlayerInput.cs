@@ -49,6 +49,22 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UseUltimate"",
+                    ""type"": ""Button"",
+                    ""id"": ""a13ede32-3135-4783-adec-653976b9ac72"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""UseHalo"",
+                    ""type"": ""Button"",
+                    ""id"": ""c96463a3-5393-46d5-8e87-1957cda0280d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -205,6 +221,28 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""190b1c27-37f8-4b18-b3e6-67fed8e58ea2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseUltimate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a86eb5f6-bb8f-4695-a4fe-62c33faa01bf"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseHalo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -217,6 +255,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_PlayerControls_Aim = m_PlayerControls.FindAction("Aim", throwIfNotFound: true);
         m_PlayerControls_ShootMain = m_PlayerControls.FindAction("ShootMain", throwIfNotFound: true);
         m_PlayerControls_Dash = m_PlayerControls.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerControls_UseUltimate = m_PlayerControls.FindAction("UseUltimate", throwIfNotFound: true);
+        m_PlayerControls_UseHalo = m_PlayerControls.FindAction("UseHalo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -270,6 +310,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Aim;
     private readonly InputAction m_PlayerControls_ShootMain;
     private readonly InputAction m_PlayerControls_Dash;
+    private readonly InputAction m_PlayerControls_UseUltimate;
+    private readonly InputAction m_PlayerControls_UseHalo;
     public struct PlayerControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -278,6 +320,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Aim => m_Wrapper.m_PlayerControls_Aim;
         public InputAction @ShootMain => m_Wrapper.m_PlayerControls_ShootMain;
         public InputAction @Dash => m_Wrapper.m_PlayerControls_Dash;
+        public InputAction @UseUltimate => m_Wrapper.m_PlayerControls_UseUltimate;
+        public InputAction @UseHalo => m_Wrapper.m_PlayerControls_UseHalo;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -299,6 +343,12 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDash;
+                @UseUltimate.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseUltimate;
+                @UseUltimate.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseUltimate;
+                @UseUltimate.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseUltimate;
+                @UseHalo.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseHalo;
+                @UseHalo.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseHalo;
+                @UseHalo.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseHalo;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -315,6 +365,12 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @UseUltimate.started += instance.OnUseUltimate;
+                @UseUltimate.performed += instance.OnUseUltimate;
+                @UseUltimate.canceled += instance.OnUseUltimate;
+                @UseHalo.started += instance.OnUseHalo;
+                @UseHalo.performed += instance.OnUseHalo;
+                @UseHalo.canceled += instance.OnUseHalo;
             }
         }
     }
@@ -325,5 +381,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnShootMain(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnUseUltimate(InputAction.CallbackContext context);
+        void OnUseHalo(InputAction.CallbackContext context);
     }
 }
