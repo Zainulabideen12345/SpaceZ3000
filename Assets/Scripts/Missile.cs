@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 
@@ -8,37 +9,39 @@ using UnityEngine;
 namespace DefaultNamespace
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class missile : MonoBehaviour
+    public class Missile : MonoBehaviour
     {
-        public Transform target;
-        public float speed = 5f;
-        public float rotateSpeed = 200f;
-        private Rigidbody2D rb;
-        public int missileDamage = 100;
+        [SerializeField] private Transform target;
+        [SerializeField] private float speed = 5f;
+        [SerializeField] private float rotateSpeed = 200f;
+        [SerializeField] private int missileDamage = 100;
+
+        private Rigidbody2D _rb;
 
         private void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
+           _rb = GetComponent<Rigidbody2D>();
             target = GameObject.FindGameObjectWithTag("Enemy").transform;
 
         }
         private void FixedUpdate()
         {
-            Vector2 direction = (Vector2)target.position - rb.position;
+            Vector2 direction = (Vector2)target.position - _rb.position;
 
             direction.Normalize();
 
             float rotateAmount = Vector3.Cross(direction, transform.up).z;
 
-            rb.angularVelocity = -rotateAmount * rotateSpeed;
+            _rb.angularVelocity = -rotateAmount * rotateSpeed;
 
-            rb.velocity = transform.up * speed;
+            _rb.velocity = transform.up * speed;
 
         }
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
             var health = hitInfo.gameObject.GetComponent<HealthManager>();
             health?.DealDamage(missileDamage);
+            
 
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             if (enemy != null)
@@ -46,7 +49,12 @@ namespace DefaultNamespace
                 Destroy(gameObject);
 
             }
+            if(hitInfo.gameObject.tag == "Obstacle")
+            {
+                Destroy(gameObject);
+            }
         }
+        
     }
 }
 

@@ -6,11 +6,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float projectileSpeed;
+    [SerializeField] private float ShootingRange = 1f;
 
     private const int SPRITE_ANGLE_DIFF = 270;
 
     private Rigidbody2D _rb;
     private GameObject _player;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +25,16 @@ public class Enemy : MonoBehaviour
         GetComponent<AIDestinationSetter>().target = _player.transform;
 
         InvokeRepeating(nameof(Shoot), .5f, 1f / attackSpeed);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+
+
     }
 
     void FixedUpdate()
@@ -40,12 +48,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   private void Shoot()
+    private void Shoot()
     {
-        GameObject bullet1 = Instantiate(bulletPrefab, transform.GetChild(0).transform.position, transform.rotation) as GameObject;
-        GameObject bullet2 = Instantiate(bulletPrefab, transform.GetChild(1).transform.position, transform.rotation) as GameObject;
+        if (Vector2.Distance(gameObject.transform.position, _player.transform.position) < ShootingRange)
+        {
+            GameObject bullet1 = Instantiate(bulletPrefab, transform.GetChild(0).transform.position, transform.rotation) as GameObject;
+            GameObject bullet2 = Instantiate(bulletPrefab, transform.GetChild(1).transform.position, transform.rotation) as GameObject;
 
-        bullet1.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
-        bullet2.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
+            bullet1.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
+            bullet2.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
+        }
     }
 }

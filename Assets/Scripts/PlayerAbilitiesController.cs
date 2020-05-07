@@ -4,13 +4,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Abilities : MonoBehaviour
+public class PlayerAbilitiesController : MonoBehaviour
 {
-    public Transform ShootingPoint_Mid;
-    public GameObject missilePrefab;
+    [SerializeField] private Transform ShootingPoint_Mid;
+    [SerializeField] private GameObject missilePrefab;
+    [SerializeField] private GameObject haloPrefab;
+    [SerializeField] private int MissileAmount;
+    [SerializeField] private float TimeBetweenMissiles = 1f;
+
     private PlayerInput _playerInput;
-    public GameObject haloPrefab;
-    
+
 
 
     private void Awake()
@@ -38,11 +41,11 @@ public class Abilities : MonoBehaviour
 
     private IEnumerator UltimateMissile()
     {
-        for (int i = 0; i <= 9; i++)
+        for (MissileAmount = 1; MissileAmount <= 9; MissileAmount++)
         {
             GameObject Ulti = Instantiate(missilePrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(TimeBetweenMissiles);
         }
 
     }
