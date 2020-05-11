@@ -52,6 +52,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "UseFlare",
+                    "type": "Button",
+                    "id": "217ef951-8b66-4b75-8262-06ea957f013d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -228,6 +236,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseHalo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d00d773a-57bb-4f85-a8a0-1c142d2d6704",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseFlare",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
