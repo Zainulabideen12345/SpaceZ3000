@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
-
-
-
+using UnityEngine.InputSystem;
 
 namespace DefaultNamespace
 {
@@ -22,19 +20,25 @@ namespace DefaultNamespace
         {
            _rb = GetComponent<Rigidbody2D>();
             target = GameObject.FindGameObjectWithTag("Enemy").transform;
-
         }
         private void FixedUpdate()
         {
-            Vector2 direction = (Vector2)target.position - _rb.position;
+            Enemy enemy = (Enemy)FindObjectOfType(typeof(Enemy));
+            if (enemy != null)
+            {
+                Vector2 direction = (Vector2)target.position - _rb.position;
 
-            direction.Normalize();
+                direction.Normalize();
 
-            float rotateAmount = Vector3.Cross(direction, transform.up).z;
+                float rotateAmount = Vector3.Cross(direction, transform.up).z;
 
-            _rb.angularVelocity = -rotateAmount * rotateSpeed;
+                _rb.angularVelocity = -rotateAmount * rotateSpeed;
 
-            _rb.velocity = transform.up * speed;
+                _rb.velocity = transform.up * speed;
+            }
+            else _rb.AddForce(transform.up,ForceMode2D.Impulse);
+            
+            
 
         }
         private void OnTriggerEnter2D(Collider2D hitInfo)
