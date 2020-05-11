@@ -65,6 +65,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UseFlare"",
+                    ""type"": ""Button"",
+                    ""id"": ""217ef951-8b66-4b75-8262-06ea957f013d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -243,6 +251,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""UseHalo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d00d773a-57bb-4f85-a8a0-1c142d2d6704"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseFlare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -257,6 +276,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_PlayerControls_Dash = m_PlayerControls.FindAction("Dash", throwIfNotFound: true);
         m_PlayerControls_UseUltimate = m_PlayerControls.FindAction("UseUltimate", throwIfNotFound: true);
         m_PlayerControls_UseHalo = m_PlayerControls.FindAction("UseHalo", throwIfNotFound: true);
+        m_PlayerControls_UseFlare = m_PlayerControls.FindAction("UseFlare", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -312,6 +332,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Dash;
     private readonly InputAction m_PlayerControls_UseUltimate;
     private readonly InputAction m_PlayerControls_UseHalo;
+    private readonly InputAction m_PlayerControls_UseFlare;
     public struct PlayerControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -322,6 +343,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_PlayerControls_Dash;
         public InputAction @UseUltimate => m_Wrapper.m_PlayerControls_UseUltimate;
         public InputAction @UseHalo => m_Wrapper.m_PlayerControls_UseHalo;
+        public InputAction @UseFlare => m_Wrapper.m_PlayerControls_UseFlare;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -349,6 +371,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @UseHalo.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseHalo;
                 @UseHalo.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseHalo;
                 @UseHalo.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseHalo;
+                @UseFlare.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseFlare;
+                @UseFlare.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseFlare;
+                @UseFlare.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseFlare;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -371,6 +396,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @UseHalo.started += instance.OnUseHalo;
                 @UseHalo.performed += instance.OnUseHalo;
                 @UseHalo.canceled += instance.OnUseHalo;
+                @UseFlare.started += instance.OnUseFlare;
+                @UseFlare.performed += instance.OnUseFlare;
+                @UseFlare.canceled += instance.OnUseFlare;
             }
         }
     }
@@ -383,5 +411,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnUseUltimate(InputAction.CallbackContext context);
         void OnUseHalo(InputAction.CallbackContext context);
+        void OnUseFlare(InputAction.CallbackContext context);
     }
 }
