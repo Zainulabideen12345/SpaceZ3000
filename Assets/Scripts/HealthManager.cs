@@ -32,6 +32,14 @@ namespace DefaultNamespace
             _healths = healthConfigs.Select(healthConfig => healthConfig.CreateHealth()).ToList();
         }
 
+        public void AddHealthAmount(int health)
+        {
+            if(_healths != null &&  _healths.Count > 0 && _healths.TrueForAll(h => h.IsFullHealth())) return;
+            
+            var damagedHealth = _healths?.FindLast(h => !h.IsFullHealth());
+            damagedHealth?.AddHealth(health);
+        }
+
         public void DealDamage(int damage)
         {
             if(HasShield()) return;

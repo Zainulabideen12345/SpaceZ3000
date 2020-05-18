@@ -41,7 +41,9 @@ namespace DefaultNamespace
 
         public void AddHealth(int health)
         {
-            _currentHealth += health;
+            if(IsFullHealth()) return;
+            
+            _currentHealth = currentHealth + health >= _initialHeath ? _initialHeath : _currentHealth + health;
             HealthAdded?.Invoke(this, EventArgs.Empty);
         }
 

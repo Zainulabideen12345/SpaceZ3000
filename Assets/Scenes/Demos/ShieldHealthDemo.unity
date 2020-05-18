@@ -1253,6 +1253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kamikaze (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 929058153148216424, guid: 985270ff806be5349aa8b9bb9b31034d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 929058153148216435, guid: 985270ff806be5349aa8b9bb9b31034d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1599,19 +1604,6 @@ MonoBehaviour:
   displayHealthBar: 1
   healthBarPrefab: {fileID: 438818151482495383, guid: 73439902fac2bcd4b8142ea5e988bd52,
     type: 3}
---- !u!114 &2121971019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121971017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthConfigs: []
 --- !u!1 &2123458832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,6 +1687,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7944282045659241900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314840, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469844761857314847, guid: 9a4983233a82acb42a92e4b7fcd042af,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHealer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9a4983233a82acb42a92e4b7fcd042af, type: 3}
 --- !u!1001 &8609972018182854180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1706,6 +1767,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kamikaze
+      objectReference: {fileID: 0}
+    - target: {fileID: 929058153148216424, guid: 985270ff806be5349aa8b9bb9b31034d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 929058153148216435, guid: 985270ff806be5349aa8b9bb9b31034d,
         type: 3}
