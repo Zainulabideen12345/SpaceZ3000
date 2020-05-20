@@ -39,6 +39,22 @@ namespace DefaultNamespace
             return damageLeftover;
         }
 
+        public void AddHealthComponent(BaseHealth newHealth)
+        {
+            _initialHeath += newHealth._initialHeath;
+            _currentHealth += newHealth._initialHeath;
+            HealthAdded?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void RemoveHealthComponent(BaseHealth health)
+        {
+            _initialHeath -= health._initialHeath;
+            _currentHealth = (currentHealth - health._initialHeath > 0)
+                ? currentHealth - health._initialHeath
+                : _currentHealth;
+            HealthAdded?.Invoke(this, EventArgs.Empty);
+        }
+
         public void AddHealth(int health)
         {
             if(IsFullHealth()) return;

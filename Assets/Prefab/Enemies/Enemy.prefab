@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209440534}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Blaster1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383299903}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Blaster2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,14 +71,13 @@ GameObject:
   - component: {fileID: 4032485173242092284}
   - component: {fileID: 4032485173242092287}
   - component: {fileID: 4032485173242092286}
-  - component: {fileID: 4032485173242092280}
   - component: {fileID: 4032485173242092281}
   - component: {fileID: 167742677778597593}
   - component: {fileID: 1399338787079642977}
   - component: {fileID: 805507116022428494}
   - component: {fileID: 109641985495039258}
   - component: {fileID: 4727643805090584406}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -172,22 +171,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &4032485173242092280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4032485173242092283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b207c0ddabb0b3498c728fee3e3192a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialHealth: 200
-  displayHealthBar: 1
-  healthBarPrefab: {fileID: 438818151482495383, guid: 73439902fac2bcd4b8142ea5e988bd52,
-    type: 3}
 --- !u!114 &4032485173242092281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +251,7 @@ MonoBehaviour:
     type: 3}
   attackSpeed: 3
   projectileSpeed: 20
+  ShootingRange: 1
 --- !u!58 &805507116022428494
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -296,8 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d829b863b474315a432888b75f0d2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayHealthBar: 1
-  healthBarPrefab: {fileID: 0}
   healthConfigs:
   - {fileID: 11400000, guid: 6e17a92d1b35895448c9d584df099bfe, type: 2}
   - {fileID: 11400000, guid: 313885eae6addd24a94841a96239458f, type: 2}

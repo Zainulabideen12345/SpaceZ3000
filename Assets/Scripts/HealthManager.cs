@@ -40,6 +40,20 @@ namespace DefaultNamespace
             damagedHealth?.AddHealth(health);
         }
 
+        public void AddHealthComponent(BaseHealthConfig config)
+        {
+            var newHealth = config.CreateHealth();
+
+            _healths?.Find(health => health.healthBarColor == newHealth.healthBarColor)?.AddHealthComponent(newHealth);
+        }
+
+        public void RemoveHealthComponent(BaseHealthConfig config)
+        {
+            var newHealth = config.CreateHealth();
+
+            _healths?.Find(health => health.healthBarColor == newHealth.healthBarColor)?.RemoveHealthComponent(newHealth);
+        }
+
         public void DealDamage(int damage)
         {
             if(HasShield()) return;
