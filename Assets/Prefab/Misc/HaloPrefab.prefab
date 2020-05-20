@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 880043136441965847}
   - component: {fileID: 880043136441965846}
   m_Layer: 0
-  m_Name: circulo
+  m_Name: HaloPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,3 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changingSpeed: 40
   haloDamage: 200
+  TimeToDestroy: 1

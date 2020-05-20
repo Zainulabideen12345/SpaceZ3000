@@ -20,7 +20,6 @@ namespace DefaultNamespace
             Guid = Guid.NewGuid();
             this.regenerateCooldown = regenerateCooldown;
             _regenerateAmount = regenerateAmount;
-            _healthBarColor = Color.blue;
         }
 
         public IEnumerator RegenerateAmount()
@@ -36,6 +35,11 @@ namespace DefaultNamespace
         {
             LastTimeDamageTaken = Time.time;
             return base.TakeDamage(damage);
+        }
+
+        public void AddHealthComponent(RegenerativeHealth newHealth)
+        {
+            base.AddHealthComponent(newHealth);
         }
 
         public override void UpdateShaderColor(Material material)
