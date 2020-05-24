@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b044b763d95a04e81a901c646b85a9, type: 3}
-  m_Name: EnemyShieldGeneratorBaseHealth
+  m_Name: EnemyShieldGeneratorBaseHealth 1
   m_EditorClassIdentifier: 
   health: 100
   healthBarColor: {r: 0.17887557, g: 1, b: 0, a: 0}
