@@ -1,20 +1,19 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace;
+using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    [SerializeField] private int damageValue;
 
     private Rigidbody2D _rb;
     private Renderer _renderer;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<Renderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!_renderer.isVisible)
@@ -27,7 +26,8 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
-            // Debug.Log("hit!");
+            var health = collision.gameObject.GetComponent<HealthManager>();
+            health.DealDamage(damageValue);
         }
         else if (collision.gameObject.GetComponent<Enemy>())
         {

@@ -15,20 +15,35 @@ public class PlayerAbilitiesController : MonoBehaviour
     [SerializeField] private float TimeBetweenMissiles = 1f;
     [SerializeField] private float TimeBetweenFlares = 0.5f;
 
+    [SerializeField] private GameObject energyBar;
+    [SerializeField] private int initialEnergy = 300;
+    [SerializeField] private int maxEnergy = 500;
+    private int currentEnergy;
+
+    [SerializeField] private int haloEnergyCost = 250;
+    [SerializeField] private int missileEnergyCost = 25;
+
     private PlayerInput _playerInput;
-
-
 
     private void Awake()
     {
-
         _playerInput = new PlayerInput();
-        _playerInput.PlayerControls.UseUltimate.performed += ctx => StartCoroutine(UltimateMissile());
-        _playerInput.PlayerControls.UseHalo.performed += ctx => UltimateHalo();
+        _playerInput.PlayerControls.UseUltimate.performed += ctx => UseUltimateMissile();
+        _playerInput.PlayerControls.UseHalo.performed += ctx => UseUltimateHalo();
         _playerInput.PlayerControls.UseFlare.performed += ctx => StartCoroutine(Flare());
 
+        currentEnergy = initialEnergy;
     }
 
+    private void Update()
+    {
+        UpdateEnergyBar();
+    }
+
+    private void UpdateEnergyBar()
+    {
+        energyBar.transform.Find("Bar").localScale = new Vector3((float)currentEnergy/maxEnergy, 1f, 1f);
+    }
 
     private void OnEnable()
     {
@@ -39,21 +54,31 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         _playerInput.Disable();
     }
-    
+
+    private void UseUltimateMissile()
+    {
+        if (currentEnergy >= missileEnergyCost)
+        {
+            StartCoroutine(UltimateMissile());
+        }
+    }
 
     private IEnumerator UltimateMissile()
     {
-        for (int i = 1;i<= MissileAmount;i++)
+        for (int i = 1; i<= MissileAmount; i++)
         {
             GameObject Ulti = Instantiate(missilePrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
 
             yield return new WaitForSeconds(TimeBetweenMissiles);
         }
-
     }
-    void UltimateHalo()
+    void UseUltimateHalo()
     {
-        GameObject Ulti2 = Instantiate(haloPrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
+        if (currentEnergy >= haloEnergyCost)
+        {
+            currentEnergy -= haloEnergyCost;
+            GameObject Ulti2 = Instantiate(haloPrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
+        }
     }
 
     private IEnumerator Flare()
@@ -63,6 +88,15 @@ public class PlayerAbilitiesController : MonoBehaviour
             GameObject Ulti3 = Instantiate(flarePrefab, ShootingPoint_back.position, ShootingPoint_back.rotation);
             yield return new WaitForSeconds(TimeBetweenFlares);
 
+        }
+    }
+
+    public void AddEnergy(int energy)
+    {
+        currentEnergy += energy;
+        if (currentEnergy > maxEnergy)
+        {
+            currentEnergy = maxEnergy;
         }
     }
 }

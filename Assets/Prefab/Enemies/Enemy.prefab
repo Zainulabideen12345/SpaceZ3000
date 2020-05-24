@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 805507116022428494}
   - component: {fileID: 109641985495039258}
   - component: {fileID: 4727643805090584406}
+  - component: {fileID: 1354339497}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -251,7 +252,7 @@ MonoBehaviour:
     type: 3}
   attackSpeed: 3
   projectileSpeed: 20
-  ShootingRange: 1
+  ShootingRange: 7
 --- !u!58 &805507116022428494
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -298,3 +299,23 @@ MonoBehaviour:
   displayHealthBar: 1
   healthBarPrefab: {fileID: 438818151482495383, guid: 73439902fac2bcd4b8142ea5e988bd52,
     type: 3}
+--- !u!114 &1354339497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032485173242092283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bd938499cb14b49bb3671bc8f4cded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropProbability: 0.8
+  availableDrops:
+  - itemPrefab: {fileID: 3892169675014956687, guid: 92f6a3b8dcada4142b8f24be0a2015fe,
+      type: 3}
+    dropChanceRate: 200
+  - itemPrefab: {fileID: 8858544955603159228, guid: 6651be1055a932b40a8987f006d6fd91,
+      type: 3}
+    dropChanceRate: 100
