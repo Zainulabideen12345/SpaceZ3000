@@ -30,8 +30,13 @@ namespace DefaultNamespace
         }
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
-            var health = hitInfo.gameObject.GetComponent<HealthManager>();
-            health?.DealDamage(haloDamage);
+            Enemy enemy = hitInfo.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                var health = hitInfo.gameObject.GetComponent<HealthManager>();
+                health?.DealDamage(haloDamage);
+
+            }
         }
 
     }

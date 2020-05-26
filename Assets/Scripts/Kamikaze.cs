@@ -45,17 +45,13 @@ namespace DefaultNamespace
         {
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             Player player = hitInfo.GetComponent<Player>();
-            if (enemy = null)
+            if (player != null)
             {
                 var health = hitInfo.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(missileDamage);
+                Destroy(gameObject);
             }
         
-            if (player != null)
-            {
-                Destroy(gameObject);
-
-            }
             if (hitInfo.gameObject.tag == "Obstacle" || hitInfo.gameObject.tag == "Player")
             {
                 Destroy(gameObject);
