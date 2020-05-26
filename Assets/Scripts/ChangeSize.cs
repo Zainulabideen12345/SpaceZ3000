@@ -8,7 +8,7 @@ namespace DefaultNamespace
     {
         private Vector2 _temp;
         [SerializeField] private float changingSpeed = 10f;
-        [SerializeField] private int haloDamage = 200;
+        [SerializeField] private int haloDamage = 100;
         [SerializeField] private float TimeToDestroy =1f;
 
 
