@@ -32,6 +32,8 @@ public class PlayerAbilitiesController : MonoBehaviour
         _playerInput.PlayerControls.UseHalo.performed += ctx => UseUltimateHalo();
         _playerInput.PlayerControls.UseFlare.performed += ctx => StartCoroutine(Flare());
 
+        
+
         currentEnergy = initialEnergy;
     }
 

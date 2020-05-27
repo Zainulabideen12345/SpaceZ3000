@@ -252,7 +252,11 @@ MonoBehaviour:
     type: 3}
   attackSpeed: 3
   projectileSpeed: 20
-  ShootingRange: 7
+  ShootingRange: 20
+  deathEffects:
+  - {fileID: 6730615947154801074, guid: 312e1ffbbe50c3442b7dbe000748ae27, type: 3}
+  - {fileID: 2275761370119679511, guid: a2821657eeecdb043a097c1d0aafd075, type: 3}
+  - {fileID: 7760167678466330422, guid: 2b959d64a181c6e4dae7b81a8da8ba6f, type: 3}
 --- !u!58 &805507116022428494
 CircleCollider2D:
   m_ObjectHideFlags: 0

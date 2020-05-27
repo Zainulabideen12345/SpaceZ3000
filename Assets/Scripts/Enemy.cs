@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float attackSpeed;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float ShootingRange = 1f;
+    [SerializeField] private GameObject[] deathEffects;
 
     private const int SPRITE_ANGLE_DIFF = 270;
 
@@ -33,8 +34,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
        
-
-
+    }
+    private void OnDestroy()
+    {
+        for (int i = 0; i< deathEffects.Length; i++) 
+        {
+            Instantiate(deathEffects[i], transform.position, transform.rotation);
+        }
     }
 
     void FixedUpdate()
@@ -45,7 +51,7 @@ public class Enemy : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + SPRITE_ANGLE_DIFF;
 
             _rb.rotation = angle;
-        }
+        } 
     }
 
     private void Shoot()
@@ -57,6 +63,6 @@ public class Enemy : MonoBehaviour
 
             bullet1.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
             bullet2.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
-        }
+          }
     }
 }

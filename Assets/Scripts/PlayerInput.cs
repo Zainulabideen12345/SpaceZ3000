@@ -70,7 +70,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""name"": ""UseFlare"",
                     ""type"": ""Button"",
                     ""id"": ""217ef951-8b66-4b75-8262-06ea957f013d"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }

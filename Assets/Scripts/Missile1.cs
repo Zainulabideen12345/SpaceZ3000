@@ -19,6 +19,7 @@ namespace DefaultNamespace
         [SerializeField] private float speed = 1;
         [SerializeField] private float rotateSpeed = 200f;
         [SerializeField] private int missileDamage = 100;
+        [SerializeField] private GameObject deathEffect;
         
 
 
@@ -26,6 +27,11 @@ namespace DefaultNamespace
         {
             _trail = GetComponent<TrailRenderer>();
             _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void OnDestroy()
+        {
+            Instantiate(deathEffect, transform.position, transform.rotation);
         }
 
         private void FixedUpdate()
@@ -45,6 +51,10 @@ namespace DefaultNamespace
                 _rb.velocity = transform.up * speed;
             }
             else _rb.AddForce(transform.up, ForceMode2D.Force);
+            if(_target == null)
+            {
+                _rb.angularVelocity = 0;
+            }
 
         }
 
