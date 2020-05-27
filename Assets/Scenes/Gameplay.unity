@@ -218,57 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d11cf29b26271428da44cce1fe97cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 726115725}
---- !u!1 &726115725 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5174115165948899675, guid: d308ba094482a21499943914c3a668ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 5174115164922749562}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1021233860
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1021233862}
-  - component: {fileID: 1021233861}
-  m_Layer: 0
-  m_Name: StarGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1021233861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021233860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbdbc16f499becf49a9eb648c59cae63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StarHolder: {fileID: 1447838942}
---- !u!4 &1021233862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021233860}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447838942
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1447838943}
   - component: {fileID: 1447838944}
+  - component: {fileID: 1447838945}
   m_Layer: 0
   m_Name: Stars
   m_TagString: Untagged
@@ -312,7 +262,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfdf540d4f93aa499677e068b4b583e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stars: {fileID: 0}
+--- !u!114 &1447838945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447838942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdbc16f499becf49a9eb648c59cae63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5174115164922749562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -384,6 +345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174115165948899675, guid: d308ba094482a21499943914c3a668ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5174115165948899679, guid: d308ba094482a21499943914c3a668ad,
         type: 3}
