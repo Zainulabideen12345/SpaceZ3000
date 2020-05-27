@@ -17,8 +17,25 @@ MonoBehaviour:
   spawnAnimationPrefab: {fileID: 1423887756802392768, guid: 0352189127355624ba84d33c68906984,
     type: 3}
   delay: 2
-  enemySpawnNumber: 0
+  enemySpawnNumber: 1
   maxEnemyNumber: 5
+--- !u!114 &535344698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262401722973517582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9928bd934308a1f48a62ea10d3fda14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  attackSpeed: 0
+  projectileSpeed: 0
+  ShootingRange: 0
+  deathEffects: []
 --- !u!1001 &4585729169925729417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,12 +46,12 @@ PrefabInstance:
     - target: {fileID: 7587242993484077954, guid: 33618b3898a13bd4b81090af088161d2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.494476
+      value: 6.276638
       objectReference: {fileID: 0}
     - target: {fileID: 7587242993484077954, guid: 33618b3898a13bd4b81090af088161d2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.50361
+      value: -16.4308
       objectReference: {fileID: 0}
     - target: {fileID: 7587242993484077954, guid: 33618b3898a13bd4b81090af088161d2,
         type: 3}
@@ -81,10 +98,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7587242993484077955, guid: 33618b3898a13bd4b81090af088161d2,
+        type: 3}
+      propertyPath: healthConfigs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587242993484077955, guid: 33618b3898a13bd4b81090af088161d2,
+        type: 3}
+      propertyPath: healthConfigs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c287ba3c84ed7f7488ff9424fe3531cb,
+        type: 2}
+    - target: {fileID: 7587242993484077957, guid: 33618b3898a13bd4b81090af088161d2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7587242993484077959, guid: 33618b3898a13bd4b81090af088161d2,
         type: 3}
       propertyPath: m_Name
-      value: KamikazeSpawner
+      value: KamikazeSpawner Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587242993484077959, guid: 33618b3898a13bd4b81090af088161d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7587242993484077956, guid: 33618b3898a13bd4b81090af088161d2, type: 3}

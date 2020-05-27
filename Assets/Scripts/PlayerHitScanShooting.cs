@@ -12,36 +12,15 @@ namespace DefaultNamespace
         [SerializeField] private int damage = 20;
         [SerializeField] private ShootingPoint[] shootingPoints;
         [SerializeField] private float rayCastDistance;
-        [SerializeField] private float timeBetweenShots = .25f;
-        
-        //Input
-        private PlayerInput _playerInput;
+        [SerializeField] private float timeBetweenShots = .25f;    
         private Rigidbody2D _rigidBody;
         private float _nextShotTime = -100f;
-
-        private void Awake()
-        {
-            _playerInput = new PlayerInput();
-            _playerInput.PlayerControls.ShootMain.performed += ctx => StartShooting();
-            _playerInput.PlayerControls.ShootMain.canceled += ctx => StopShooting();
-        }
 
         private void Start()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
-        }
-        
-        private void OnEnable()
-        {
-            _playerInput.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _playerInput.Disable();
-        }
-
-        private void StartShooting()
+        }     
+        public void StartShooting()
         {
             if (_shootCoroutine == null && Time.time > (_nextShotTime + timeBetweenShots))
             {
@@ -51,7 +30,7 @@ namespace DefaultNamespace
             _nextShotTime = Time.time;
         }
 
-        private void StopShooting()
+        public void StopShooting()
         {
             if(_shootCoroutine == null) return;
             

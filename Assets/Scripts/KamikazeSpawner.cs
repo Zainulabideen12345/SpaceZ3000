@@ -52,4 +52,8 @@ public class KamikazeSpawner : MonoBehaviour
             _enemy = Instantiate(enemyPrefab, transform.position, transform.rotation) as GameObject;
         }
     }
+    private void OnDestroy()
+    {
+        Destroy(_spawnAnimation);
+    }
 }

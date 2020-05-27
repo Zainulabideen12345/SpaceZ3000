@@ -60,8 +60,6 @@ namespace DefaultNamespace
 
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
-            Debug.Log("Gotcha!");
-
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             if (enemy != null)
             {

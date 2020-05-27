@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113711754}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -0.612, z: -153.58008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.029, y: -0.441, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5174115165948899673}
@@ -228,36 +228,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!1 &4607752583758910435
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8333540880121230563}
-  m_Layer: 10
-  m_Name: ShootingPoint_Back
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8333540880121230563
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4607752583758910435}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.603, z: -153.58008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5174115165948899673}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5174115165948899675
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +246,8 @@ GameObject:
   - component: {fileID: 1940593675}
   - component: {fileID: 8281463910609087056}
   - component: {fileID: 1940593684}
-  - component: {fileID: 1381413719}
+  - component: {fileID: 1729925339}
+  - component: {fileID: 8588733782543989562}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -300,7 +271,6 @@ Transform:
   - {fileID: 5148570013249697856}
   - {fileID: 3296098339470855986}
   - {fileID: 2113711755}
-  - {fileID: 8333540880121230563}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -404,7 +374,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2713794892195097264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,12 +433,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootingPoint_Mid: {fileID: 526748888012328555}
-  ShootingPoint_back: {fileID: 8333540880121230563}
+  ShootingPoint_back: {fileID: 2113711755}
   missilePrefab: {fileID: 8467928475802994179, guid: 35c158a2156d80d4da34487dd8dafb7b,
     type: 3}
   haloPrefab: {fileID: 880043136441965841, guid: 07bdaf48da9f44f4bbd80e3a2d4af4d8,
     type: 3}
-  flarePrefab: {fileID: 7901178593848635894, guid: 6820c7e6a2a1c9d4191e8d75aaeb830c,
+  flarePrefab: {fileID: 2691449484579456636, guid: 8c26cd4b301887b42a39804d0c809873,
     type: 3}
   MissileAmount: 15
   TimeBetweenMissiles: 0.3
@@ -476,7 +446,7 @@ MonoBehaviour:
   energyBar: {fileID: 0}
   initialEnergy: 300
   maxEnergy: 500
-  haloEnergyCost: 0
+  haloEnergyCost: 100
   missileEnergyCost: 25
 --- !u!114 &8281463910609087056
 MonoBehaviour:
@@ -508,27 +478,44 @@ MonoBehaviour:
   displayHealthBar: 1
   healthBarPrefab: {fileID: 438818151482495383, guid: 73439902fac2bcd4b8142ea5e988bd52,
     type: 3}
---- !u!114 &1381413719
+--- !u!114 &1729925339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5174115165948899675}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fca93994590c94d87a31a93269a13b, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d9e7eee5d1a294ca965a5c9b242dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShootingPrefab: 0
-  isShootingScan: 0
-  bulletPrefab: {fileID: 7767495596228816013, guid: dbfbb14cf8b35ef4694948497527a517,
+  weapon_1_Prefab: {fileID: 8399060573001293261, guid: dbfbb14cf8b35ef4694948497527a517,
     type: 3}
-  bulletPrefab2: {fileID: 386675570425285353, guid: 0ba73a4cd3cf2d948912da9af39949aa,
+  weapon_2_Prefab: {fileID: 0}
+  midShooting: {fileID: 526748888012328555}
+  leftShooting: {fileID: 5265053537699665971}
+  rightShooting: {fileID: 5148570013249697856}
+  impactEffect: {fileID: 586404391785477521, guid: 4676c42e3ab3fae48bb0cdffe7025885,
     type: 3}
-  Shooting_Point_Mid: {fileID: 526748888012328555}
-  Shooting_Point_Left: {fileID: 5265053537699665971}
-  Shooting_Point_Right: {fileID: 5148570013249697856}
+  isUsingWeapon1: 0
+  isUsingWeapon2: 0
+--- !u!114 &8588733782543989562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174115165948899675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4609815cb7020fe4cb278aec95766ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenShots: 0.25
+  weapon_1_Prefab: {fileID: 8399060573001293261, guid: dbfbb14cf8b35ef4694948497527a517,
+    type: 3}
+  midShooting: {fileID: 526748888012328555}
 --- !u!1 &6056528044656330534
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,6 +89,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         {
             GameObject Ulti3 = Instantiate(flarePrefab, ShootingPoint_back.position, ShootingPoint_back.rotation);
             yield return new WaitForSeconds(TimeBetweenFlares);
+            Debug.Log("flare!");
 
         }
     }

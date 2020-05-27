@@ -4,6 +4,7 @@ namespace DefaultNamespace
 {
     public class ShootingRaycast
     {
+        int damage = 50;
         public static void ShootSingle(Vector3 shootPosition, Vector3 shootDirection, float distance, int damage)
         {
             var raycast = Physics2D.Raycast(shootPosition, shootDirection, distance, LayerMask.GetMask("Enemy"));

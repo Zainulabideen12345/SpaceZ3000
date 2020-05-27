@@ -144,11 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253c053cb07c3be489caa7518170e569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 25
   rotateSpeed: 200
   missileDamage: 100
-  deathEffects:
-  - {fileID: 586404391785477521, guid: 4676c42e3ab3fae48bb0cdffe7025885, type: 3}
+  deathEffect: {fileID: 586404391785477521, guid: 4676c42e3ab3fae48bb0cdffe7025885,
+    type: 3}
 --- !u!96 &8695525348305248403
 TrailRenderer:
   serializedVersion: 2

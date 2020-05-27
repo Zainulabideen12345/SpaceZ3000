@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Shield
   - Obstacle
+  - Flare
+  - Kamikaze_Enemy
   layers:
   - Default
   - TransparentFX
