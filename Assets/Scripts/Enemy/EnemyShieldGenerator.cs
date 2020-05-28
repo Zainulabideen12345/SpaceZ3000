@@ -20,7 +20,7 @@ public class EnemyShieldGenerator : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies){
-            if (!enemy.GetComponent<HealthManager>().HasShield())
+            if (!enemy.GetComponent<HealthManager>().HasShield() && enemy != gameObject)
             {
                 _shields.Add(Instantiate(shieldPrefab, enemy.transform));
             }

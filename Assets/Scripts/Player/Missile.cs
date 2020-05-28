@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 namespace DefaultNamespace
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Missile1 : MonoBehaviour
+    public class Missile : MonoBehaviour
     {
 
         private Transform _target;

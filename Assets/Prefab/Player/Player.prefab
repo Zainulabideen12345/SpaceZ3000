@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 1940593684}
   - component: {fileID: 1729925339}
   - component: {fileID: 8588733782543989562}
+  - component: {fileID: 4776809429116827691}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -499,7 +500,7 @@ MonoBehaviour:
   impactEffect: {fileID: 586404391785477521, guid: 4676c42e3ab3fae48bb0cdffe7025885,
     type: 3}
   isUsingWeapon1: 0
-  isUsingWeapon2: 0
+  isUsingWeapon2: 1
 --- !u!114 &8588733782543989562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +517,28 @@ MonoBehaviour:
   weapon_1_Prefab: {fileID: 8399060573001293261, guid: dbfbb14cf8b35ef4694948497527a517,
     type: 3}
   midShooting: {fileID: 526748888012328555}
+--- !u!114 &4776809429116827691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174115165948899675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d9e7eee5d1a294ca965a5c9b242dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon_1_Prefab: {fileID: 8399060573001293261, guid: dbfbb14cf8b35ef4694948497527a517,
+    type: 3}
+  weapon_2_Prefab: {fileID: 0}
+  midShooting: {fileID: 526748888012328555}
+  leftShooting: {fileID: 5265053537699665971}
+  rightShooting: {fileID: 5148570013249697856}
+  impactEffect: {fileID: 586404391785477521, guid: 4676c42e3ab3fae48bb0cdffe7025885,
+    type: 3}
+  isUsingWeapon1: 0
+  isUsingWeapon2: 0
 --- !u!1 &6056528044656330534
 GameObject:
   m_ObjectHideFlags: 0

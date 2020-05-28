@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 8812571673403355170}
   - component: {fileID: 5877484046064102274}
   - component: {fileID: 2601611879525032844}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyShieldGenerator
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthConfigs:
-  - {fileID: 11400000, guid: 24aae38fa1e4eca4aa0ca21b05ef6c7c, type: 2}
+  - {fileID: 11400000, guid: bb304eb2af8429f4ebb15e92defb0698, type: 2}
 --- !u!114 &2601611879525032844
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,6 +61,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         if (currentEnergy >= missileEnergyCost)
         {
+            currentEnergy -= missileEnergyCost;
             StartCoroutine(UltimateMissile());
         }
     }
