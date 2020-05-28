@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 { 
-    [SerializeField] private GameObject weapon_1_Prefab;
-    [SerializeField] private GameObject weapon_2_Prefab;
-    [SerializeField] private Transform midShooting;
-    [SerializeField] private Transform leftShooting;
-    [SerializeField] private Transform rightShooting;
-    [SerializeField] private GameObject impactEffect;
     [SerializeField] private bool isUsingWeapon1;
     [SerializeField] private bool isUsingWeapon2;
     private PlayerHitScanShooting playerHitScanShooting;
