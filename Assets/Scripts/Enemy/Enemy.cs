@@ -58,6 +58,8 @@ public class Enemy : MonoBehaviour
     {
         if (Vector2.Distance(gameObject.transform.position, _player.transform.position) < ShootingRange)
         {
+            AudioManager.instance.Play("Pew");
+
             GameObject bullet1 = Instantiate(bulletPrefab, transform.GetChild(0).transform.position, transform.rotation) as GameObject;
             GameObject bullet2 = Instantiate(bulletPrefab, transform.GetChild(1).transform.position, transform.rotation) as GameObject;
 

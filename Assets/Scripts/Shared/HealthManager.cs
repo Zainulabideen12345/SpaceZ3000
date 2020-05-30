@@ -57,7 +57,7 @@ namespace DefaultNamespace
         public void DealDamage(int damage)
         {
             if(HasShield()) return;
-            
+
             if (damage > _healths.Sum(h => h.currentHealth) || _healths.TrueForAll(h => h.IsHealthDepleted()))
             {
                 Die();

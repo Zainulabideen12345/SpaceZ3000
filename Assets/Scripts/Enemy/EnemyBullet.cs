@@ -12,6 +12,8 @@ public class EnemyBullet : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<Renderer>();
+
+        AudioManager.instance.Play("Pew");
     }
 
     void Update()
@@ -26,14 +28,14 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
+            AudioManager.instance.Play("PlayerHit");
+
             var health = collision.gameObject.GetComponent<HealthManager>();
             health.DealDamage(damageValue);
         }
-        else if (collision.gameObject.GetComponent<Enemy>())
+        else if (collision.gameObject.tag == "Obstacle")
         {
-            return;
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 }

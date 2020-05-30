@@ -51,6 +51,8 @@ namespace DefaultNamespace
             Player player = hitInfo.GetComponent<Player>();
             if (player != null)
             {
+                AudioManager.instance.Play("PlayerHit");
+
                 var health = hitInfo.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(missileDamage);
                 Destroy(gameObject);
@@ -59,7 +61,7 @@ namespace DefaultNamespace
             if (hitInfo.gameObject.tag == "Obstacle" || hitInfo.gameObject.tag == "Player" || hitInfo.gameObject.tag == "Flare")
             {
                 Destroy(gameObject);
-            }  
+            }
         }
 
     }

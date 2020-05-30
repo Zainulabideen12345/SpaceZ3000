@@ -4,21 +4,19 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class ChangeSize : MonoBehaviour
+    public class Halo : MonoBehaviour
     {
         private Vector2 _temp;
         [SerializeField] private float changingSpeed = 10f;
         [SerializeField] private int haloDamage = 100;
         [SerializeField] private float TimeToDestroy =1f;
 
-
         private IEnumerator Start()
         {
+            AudioManager.instance.Play("HaloCast");
             yield return new WaitForSeconds(TimeToDestroy);
             Destroy(gameObject);
         }
-
-
         void Update()
         {
             _temp = transform.localScale;
@@ -33,6 +31,7 @@ namespace DefaultNamespace
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             if (enemy != null)
             {
+                AudioManager.instance.Play("HaloHit");
                 var health = hitInfo.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(haloDamage);
 

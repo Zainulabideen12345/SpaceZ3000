@@ -26,7 +26,6 @@ namespace DefaultNamespace
             {
                 _shootCoroutine =  StartCoroutine(Shoot());
             }
-
             _nextShotTime = Time.time;
         }
 
@@ -44,7 +43,6 @@ namespace DefaultNamespace
             {
                 var mouseWorldPoint = _rigidBody.position;
                 
-
                 // Obtain a reference to the main shooting point
                 var mainShootingPoint = shootingPoints.Single(point => point.IsMain);
 
@@ -64,7 +62,6 @@ namespace DefaultNamespace
             var shootPoint = mouseWorldPoint + (gunPoint - mainGunPoint);
             Vector2 shootDirection = -(shootPoint - gunPoint).normalized;
             
-            // shootingPoint.RenderBulletTrace(shootPoint);
             shootingPoint.RenderBulletTraceFromDirection(shootDirection, timeBetweenShots, rayCastDistance);
             ShootingRaycast.ShootSingle(gunPoint, shootDirection, rayCastDistance, damage);
         }

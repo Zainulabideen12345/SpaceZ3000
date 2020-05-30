@@ -25,6 +25,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
+            AudioManager.instance.Play("PlayerRocket");
             _trail = GetComponent<TrailRenderer>();
             _rb = GetComponent<Rigidbody2D>();
         }
@@ -39,18 +40,18 @@ namespace DefaultNamespace
             _target = FindTarget();
             if (_target != null)
             {
-
                 Vector2 direction = (Vector2)_target.position - _rb.position;
-
                 direction.Normalize();
-
                 float rotateAmount = Vector3.Cross(direction, transform.up).z;
 
                 _rb.angularVelocity = -rotateAmount * rotateSpeed;
-
                 _rb.velocity = transform.up * speed;
             }
-            else _rb.AddForce(transform.up, ForceMode2D.Force);
+            else
+            {
+                _rb.AddForce(transform.up, ForceMode2D.Force);
+            }
+
             if(_target == null)
             {
                 _rb.angularVelocity = 0;
@@ -63,11 +64,11 @@ namespace DefaultNamespace
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             if (enemy != null)
             {
+                AudioManager.instance.Play("EnemyHit");
                 var health = hitInfo.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(missileDamage);
 
                 Destroy(gameObject);
-
             }
             else if(hitInfo.gameObject.tag == "Obstacle")
             {

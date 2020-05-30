@@ -15,6 +15,8 @@ namespace DefaultNamespace
 
         void Start()
         {
+            AudioManager.instance.Play("PlayerRocket");
+
             _rb = GetComponent<Rigidbody2D>();
             _renderer = GetComponent<Renderer>();    
         }
@@ -32,6 +34,8 @@ namespace DefaultNamespace
         {
             if (collision.gameObject.GetComponent<Enemy>())
             {
+                AudioManager.instance.Play("EnemyHit");
+
                 var health = collision.gameObject.GetComponent<HealthManager>();
                 health.DealDamage(damageValue);
                 Destroy(gameObject);
