@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   dashDistance: 3
+  acceleration: 100
   dashSpeed: 3
   distanceBetweenImages: 0.1
   dashCooldown: 3
@@ -368,7 +369,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 3
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}

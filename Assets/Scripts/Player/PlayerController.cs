@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float dashDistance = 10f;
+    [SerializeField] private float acceleration = 100f;
     private PlayerInput _playerInput;
-    private Vector2 _movement;
+    private Vector2 _moveDirection;
     private Vector2 _mousePosition;
     private bool _isMouse;
 
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInput();
-        _playerInput.PlayerControls.Move.performed += ctx => _movement = ctx.ReadValue<Vector2>();
+        _playerInput.PlayerControls.Move.performed += ctx => _moveDirection = ctx.ReadValue<Vector2>();
         _playerInput.PlayerControls.Aim.performed += ctx =>
         {
             _isMouse = ctx.control.device == Mouse.current;
@@ -82,8 +83,7 @@ public class PlayerController : MonoBehaviour
 
     private void MoveRigidBody()
     {
-        var movement = _movement * (moveSpeed * Time.fixedDeltaTime);
-        _rigidbody.MovePosition(_rigidbody.position + movement);
+        _rigidbody.AddForce(_moveDirection * acceleration);
     }
     
     private void CheckDash()
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         if (!_isDashing) return;
         if (_dashTimeLeft <= 0) _isDashing = false;
 
-        var dash = _movement * (dashSpeed * dashTime);
+        var dash = _moveDirection * (dashSpeed * dashTime);
         _rigidbody.MovePosition(_rigidbody.position + dash);
         _dashTimeLeft -= Time.fixedDeltaTime;
 
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     private void TeleportDash()
     {
-        var dash = _movement * dashDistance;
+        var dash = _moveDirection * dashDistance;
         _rigidbody.MovePosition(_rigidbody.position + dash);
         _isDashing = false;
     }
