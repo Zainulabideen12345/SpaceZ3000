@@ -8,12 +8,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float ShootingRange = 1f;
     [SerializeField] private GameObject[] deathEffects;
+    [SerializeField] private int energyAmountAdded = 20;
 
     private const int SPRITE_ANGLE_DIFF = 270;
 
     private Rigidbody2D _rb;
-    private GameObject _player;
-    
+    private GameObject _player;        
     
 
     // Start is called before the first frame update
@@ -24,23 +24,18 @@ public class Enemy : MonoBehaviour
 
         gameObject.AddComponent<AIDestinationSetter>();
         GetComponent<AIDestinationSetter>().target = _player.transform;
-
         InvokeRepeating(nameof(Shoot), .5f, 1f / attackSpeed);
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+    }  
+  
     private void OnDestroy()
     {
+        
         for (int i = 0; i< deathEffects.Length; i++) 
         {
             Instantiate(deathEffects[i], transform.position, transform.rotation);
         }
+        _player.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);
+        
     }
 
     void FixedUpdate()

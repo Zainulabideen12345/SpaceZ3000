@@ -119,8 +119,8 @@ namespace DefaultNamespace
         }
 
         private void Die()
-        {
-            Destroy(gameObject);
+        {           
+            Destroy(gameObject);        
         }
         
         public bool HasShield()

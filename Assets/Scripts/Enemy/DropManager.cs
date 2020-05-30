@@ -6,13 +6,15 @@ public class DropManager : MonoBehaviour
 {
     [SerializeField] float dropProbability;
     [SerializeField] private List<Droppable> availableDrops;
+    [SerializeField] private int maxMoneyAmount;
+    [SerializeField] private GameObject coinPrefab;
     private void OnDestroy()
     {
+        DropMoney();
         if (Random.Range(0f, 1) < dropProbability)
         {
             int total = availableDrops.ConvertAll(e => e.dropChanceRate).Sum();
-            int randomNumber = Random.Range(0, total);
-
+            int randomNumber = Random.Range(0, total);                      
             foreach (Droppable d in availableDrops)
             {
                 if (randomNumber < d.dropChanceRate)
@@ -25,8 +27,22 @@ public class DropManager : MonoBehaviour
                     randomNumber -= d.dropChanceRate;
                 }
             }
+            
         }
     }
+
+    private void DropMoney()
+    {
+        int randomNumb = Random.Range(1,maxMoneyAmount);
+
+        for(int i =1;i<=randomNumb;i++)
+        {
+            Instantiate(coinPrefab, transform.position, transform.rotation);
+        }
+    }
+
+
+
 
     private void Drop (Droppable d)
     {

@@ -18,7 +18,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     [SerializeField] private GameObject energyBar;
     [SerializeField] private int initialEnergy = 300;
     [SerializeField] private int maxEnergy = 500;
-    private int currentEnergy;
+     private int currentEnergy;
 
     [SerializeField] private int haloEnergyCost = 250;
     [SerializeField] private int missileEnergyCost = 25;

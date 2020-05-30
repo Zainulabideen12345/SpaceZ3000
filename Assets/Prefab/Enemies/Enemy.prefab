@@ -257,6 +257,7 @@ MonoBehaviour:
   - {fileID: 6730615947154801074, guid: 312e1ffbbe50c3442b7dbe000748ae27, type: 3}
   - {fileID: 2275761370119679511, guid: a2821657eeecdb043a097c1d0aafd075, type: 3}
   - {fileID: 7760167678466330422, guid: 2b959d64a181c6e4dae7b81a8da8ba6f, type: 3}
+  energyAmountAdded: 20
 --- !u!58 &805507116022428494
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -317,9 +318,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropProbability: 0.8
   availableDrops:
-  - itemPrefab: {fileID: 3892169675014956687, guid: 92f6a3b8dcada4142b8f24be0a2015fe,
-      type: 3}
-    dropChanceRate: 200
   - itemPrefab: {fileID: 8858544955603159228, guid: 6651be1055a932b40a8987f006d6fd91,
       type: 3}
-    dropChanceRate: 100
+    dropChanceRate: 200
+  maxMoneyAmount: 4
+  coinPrefab: {fileID: 7053948340244715917, guid: 2e478cd84165bb844bb3a79dd9d5ba40,
+    type: 3}

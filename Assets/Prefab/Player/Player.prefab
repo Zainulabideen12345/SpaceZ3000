@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f578e9a3f669c9409762680d3cb20ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showCoinsAmount: {fileID: 0}
 --- !u!50 &7902272921661894564
 Rigidbody2D:
   serializedVersion: 4
