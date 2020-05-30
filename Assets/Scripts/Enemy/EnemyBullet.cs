@@ -1,41 +1,29 @@
-﻿using DefaultNamespace;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+namespace DefaultNamespace
 {
-    [SerializeField] private int damageValue;
-
-    private Rigidbody2D _rb;
-    private Renderer _renderer;
-
-    void Start()
+    public class EnemyBullet : Projectile
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _renderer = GetComponent<Renderer>();
 
-        AudioManager.instance.Play("Pew");
-    }
-
-    void Update()
-    {
-        if (!_renderer.isVisible)
+        protected override void Start()
         {
-            Destroy(gameObject);
+            base.Start();
+            AudioManager.instance.Play("Pew");
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<Player>())
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            AudioManager.instance.Play("PlayerHit");
+            if (collision.gameObject.GetComponent<Player>())
+            {
+                AudioManager.instance.Play("PlayerHit");
 
-            var health = collision.gameObject.GetComponent<HealthManager>();
-            health.DealDamage(damageValue);
-        }
-        else if (collision.gameObject.tag == "Obstacle")
-        {
-            Destroy(gameObject);
+                var health = collision.gameObject.GetComponent<HealthManager>();
+                health.DealDamage(damageValue);
+            }
+            else if (collision.gameObject.tag == "Obstacle")
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

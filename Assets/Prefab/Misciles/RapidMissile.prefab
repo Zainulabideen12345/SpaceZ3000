@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6915585920262784334}
   - component: {fileID: 8695525348305248403}
   m_Layer: 0
-  m_Name: missiles
+  m_Name: RapidMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8cbfbc17dea49b48be8c2a16461500a, type: 2}
+  - {fileID: 2100000, guid: e05393f73d872fe49a7c08d02761f863, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

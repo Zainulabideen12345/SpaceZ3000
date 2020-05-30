@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace;
+using UnityEngine;
 using Pathfinding;
 
 public class Enemy : MonoBehaviour
@@ -53,13 +54,12 @@ public class Enemy : MonoBehaviour
     {
         if (Vector2.Distance(gameObject.transform.position, _player.transform.position) < ShootingRange)
         {
+            var bullet1 = Instantiate(bulletPrefab, transform.GetChild(0).transform.position, transform.rotation);
+            var bullet2 = Instantiate(bulletPrefab, transform.GetChild(1).transform.position, transform.rotation);
+            
+            bullet1.GetComponent<Projectile>().SetVelocity(transform.up);
+            bullet2.GetComponent<Projectile>().SetVelocity(transform.up);
+        }
             AudioManager.instance.Play("Pew");
-
-            GameObject bullet1 = Instantiate(bulletPrefab, transform.GetChild(0).transform.position, transform.rotation) as GameObject;
-            GameObject bullet2 = Instantiate(bulletPrefab, transform.GetChild(1).transform.position, transform.rotation) as GameObject;
-
-            bullet1.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
-            bullet2.GetComponent<Rigidbody2D>().velocity = transform.up * projectileSpeed;
-          }
     }
 }

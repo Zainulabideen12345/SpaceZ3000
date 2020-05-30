@@ -1,33 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.SocialPlatforms.Impl;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class PlayerBullet : MonoBehaviour
+    public class PlayerBullet : Projectile
     {
-        [SerializeField] private int damageValue = 50;
-        [SerializeField] private int moveSpeed = 5;
-        private Rigidbody2D _rb;
-        private Renderer _renderer;
 
-        void Start()
+        protected override void Start()
         {
-            AudioManager.instance.Play("PlayerRocket");
-
-            _rb = GetComponent<Rigidbody2D>();
-            _renderer = GetComponent<Renderer>();    
-        }
-
-        void FixedUpdate()
-        {
-            if (!_renderer.isVisible)
-            {
-                Destroy(gameObject);
-            }
-            _rb.AddForce(transform.up*moveSpeed, ForceMode2D.Impulse);
+            base.Start();
+            AudioManager.instance.Play("PlayerRocket"); 
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -40,7 +21,7 @@ namespace DefaultNamespace
                 health.DealDamage(damageValue);
                 Destroy(gameObject);
             }
-            else if (collision.gameObject.tag == "Obstacle")
+            else if (collision.gameObject.CompareTag("Obstacle"))
             {
                 Destroy(gameObject);
             }

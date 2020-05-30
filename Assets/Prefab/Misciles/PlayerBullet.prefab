@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4105872110315192985}
   - component: {fileID: 3100097084497600437}
   m_Layer: 0
-  m_Name: laserBlue12
+  m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0dfaa8738fc48a74a9fc755185b154db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,4 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b75373e72608c48ad0d0aba132beed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  damageValue: 25
+  moveSpeed: 20
+  laserColor: {r: 0, g: 1.2563239, b: 5.2164755, a: 0}

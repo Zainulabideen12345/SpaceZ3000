@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class BulletShooting : MonoBehaviour
@@ -7,7 +8,7 @@ public class BulletShooting : MonoBehaviour
     [SerializeField] private float timeBetweenShots = 0.25f;
     private Coroutine _shootCoroutine;
     private float _nextShotTime = -100f;
-    [SerializeField] private GameObject weapon_1_Prefab;
+    [SerializeField] private GameObject playerBullet;
     [SerializeField] private Transform midShooting;
 
     public void StartShooting()
@@ -30,7 +31,9 @@ public class BulletShooting : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(weapon_1_Prefab, midShooting.position, midShooting.rotation);
+            var bullet = Instantiate(playerBullet, midShooting.position, midShooting.rotation);
+
+            bullet.GetComponent<Projectile>().SetVelocity(transform.up);
 
             yield return new WaitForSeconds(timeBetweenShots);
         }
