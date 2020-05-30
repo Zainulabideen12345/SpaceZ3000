@@ -119,6 +119,11 @@ PrefabInstance:
       propertyPath: moneyAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6458338308386082642, guid: d9082b66bcc10fa4ab5368623ab49f21,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 45238710e9db29b42a26749e21a83042, type: 2}
     - target: {fileID: 6723687128620792926, guid: d9082b66bcc10fa4ab5368623ab49f21,
         type: 3}
       propertyPath: m_Name

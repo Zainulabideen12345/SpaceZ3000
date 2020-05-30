@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -395780379377353612}
   - component: {fileID: -3039994148378564261}
   - component: {fileID: 8417120639334005251}
-  - component: {fileID: 6458338308386082642}
+  - component: {fileID: 848003480185499292}
   m_Layer: 0
   m_Name: star_gold10
   m_TagString: Untagged
@@ -255,7 +255,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!95 &6458338308386082642
+--- !u!95 &848003480185499292
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ Animator:
   m_GameObject: {fileID: 6723687128620792926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b685280bcccd754981120f70a19e36c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 865bfe936a1d90c4d8cf5966772d1422, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
