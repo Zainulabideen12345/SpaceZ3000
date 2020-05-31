@@ -35,8 +35,7 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(deathEffects[i], transform.position, transform.rotation);
         }
-        _player.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);
-        
+        _player?.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);       
     }
 
     void FixedUpdate()

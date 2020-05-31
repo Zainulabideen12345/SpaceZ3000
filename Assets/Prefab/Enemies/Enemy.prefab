@@ -318,7 +318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropProbability: 0.8
   availableDrops:
-  - itemPrefab: {fileID: 0}
+  - itemPrefab: {fileID: 8858544955603159228, guid: 6651be1055a932b40a8987f006d6fd91,
+      type: 3}
     dropChanceRate: 200
   maxMoneyAmount: 4
   coinPrefab: {fileID: 7053948340244715917, guid: 2e478cd84165bb844bb3a79dd9d5ba40,

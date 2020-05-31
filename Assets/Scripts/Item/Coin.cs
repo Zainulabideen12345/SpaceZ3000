@@ -20,7 +20,10 @@ public class Coin : MonoBehaviour
     
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
+        if (_target != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
