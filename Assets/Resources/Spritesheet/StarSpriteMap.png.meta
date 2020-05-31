@@ -14,6 +14,54 @@ TextureImporter:
   - first:
       213: -6756639880006411402
     second: StarSpriteMap_3
+  - first:
+      213: 3275060767113951081
+    second: StarSpriteMap_0
+  - first:
+      213: -8552159361898145063
+    second: StarSpriteMap_1
+  - first:
+      213: -3319722028132912574
+    second: StarSpriteMap_2
+  - first:
+      213: 1639575583452099436
+    second: StarSpriteMap_3
+  - first:
+      213: 7678012940608897923
+    second: StarSpriteMap_4
+  - first:
+      213: -7851748656840029464
+    second: StarSpriteMap_5
+  - first:
+      213: 2569830302348928761
+    second: StarSpriteMap_6
+  - first:
+      213: -2366297590476472691
+    second: StarSpriteMap_7
+  - first:
+      213: 7201492807035616132
+    second: StarSpriteMap_8
+  - first:
+      213: 2691726109011205308
+    second: StarSpriteMap_9
+  - first:
+      213: 5330289968363443736
+    second: StarSpriteMap_10
+  - first:
+      213: -8488447167707383905
+    second: StarSpriteMap_11
+  - first:
+      213: 6585267102838047482
+    second: StarSpriteMap_12
+  - first:
+      213: 3313984486238377520
+    second: StarSpriteMap_13
+  - first:
+      213: -426308603684957439
+    second: StarSpriteMap_14
+  - first:
+      213: -7522594855517098918
+    second: StarSpriteMap_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -53,16 +101,16 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 6
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.26372066, y: 0.74076563}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 9, y: 41, z: 41, w: 9}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -94,6 +142,42 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -101,19 +185,19 @@ TextureImporter:
       name: StarSpriteMap_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8
+        y: 40
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6853c2aa4522b5b0800000000000000
-      internalID: -5354176004501579666
+      spriteID: 96735a96a6a537d20800000000000000
+      internalID: 3275060767113951081
       vertices: []
       indices: 
       edges: []
@@ -122,19 +206,19 @@ TextureImporter:
       name: StarSpriteMap_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 40
+        y: 40
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc3795b0f4fa1c420800000000000000
-      internalID: 2648590809898251215
+      spriteID: 9da97832f50a05980800000000000000
+      internalID: -8552159361898145063
       vertices: []
       indices: 
       edges: []
@@ -143,19 +227,19 @@ TextureImporter:
       name: StarSpriteMap_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8
+        y: 9
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d36808c62c899dc0800000000000000
-      internalID: -3631717526304955435
+      spriteID: 2423910776afde1d0800000000000000
+      internalID: -3319722028132912574
       vertices: []
       indices: 
       edges: []
@@ -164,24 +248,32 @@ TextureImporter:
       name: StarSpriteMap_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 40
+        y: 8
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67bdafcc3d79b32a0800000000000000
-      internalID: -6756639880006411402
+      spriteID: c63f01a6e41f0c610800000000000000
+      internalID: 1639575583452099436
       vertices: []
       indices: 
       edges: []
       weights: []
-    outline: []
+    outline:
+    - - {x: -19, y: 10}
+      - {x: -22, y: 13}
+      - {x: -22, y: 18}
+      - {x: -19, y: 22}
+      - {x: -13, y: 22}
+      - {x: -10, y: 19}
+      - {x: -10, y: 14}
+      - {x: -13, y: 10}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000

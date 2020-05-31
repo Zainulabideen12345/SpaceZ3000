@@ -2,10 +2,21 @@
 
 public class StarGenerator : MonoBehaviour
 {
+    [SerializeField]
+    [ColorUsage(true, true)]
+    private Color[] starColors = new Color[] 
+        { 
+            new Color(1, 0.6f, 0.7f, 1),
+            new Color(1, 0.6f, 1, 1), 
+            new Color(0.6f, 0.6f, 1, 1), 
+            new Color(1, 0.92f, 0.6f, 1f), 
+            new Color(0.6f, 1, 0.6f, 1) 
+        };
+
+    [SerializeField] private float intensity = 1.2f;
+    
     private readonly int[] starsByLayer = new int[] { 20, 40, 120, 200};
     private readonly float[] scaleByLayer = new float[] { 1.25f, 1f, 0.7f, 0.5f };
-    private readonly Color[] starColors = new Color[] { new Color(1, 0.6f, 0.7f, 1), new Color(1, 0.6f, 1, 1), new Color(0.6f, 0.6f, 1, 1), new Color(1, 0.92f, 0.6f, 1f), new Color(0.6f, 1, 0.6f, 1) };
-
     private GameObject[] layers;
 
     private const float colouredChance = 0.5f;
@@ -38,7 +49,10 @@ public class StarGenerator : MonoBehaviour
                 newStar.transform.parent = layerObject.transform;
                 newStar.transform.localScale = new Vector2(newStarScale, newStarScale);
                 newStar.GetComponent<SpriteRenderer>().color = newStarColor;
-                newStar.GetComponent<Animator>().speed = Random.Range(minShimmerSpeed, maxShimmerSpeed);
+                var factor = Mathf.Pow(2, intensity);
+                var colorShine = new Color(newStarColor.r * factor,newStarColor.g * factor,newStarColor.b * factor);
+                newStar.GetComponent<SpriteRenderer>().material.SetColor("_ColorShine", colorShine);
+                newStar.GetComponent<SpriteRenderer>().material.SetColor("_ColorDefault", newStarColor);
             }
         }
     }

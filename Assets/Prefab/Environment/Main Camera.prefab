@@ -121,10 +121,10 @@ Canvas:
   m_GameObject: {fileID: 283134614}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 2208507073195843629}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -196,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851747165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1747.542, y: 371.64548, z: -4492.6543}
+  m_LocalPosition: {x: -1921, y: 151, z: -4492.6543}
   m_LocalScale: {x: 20.733334, y: 20.733334, z: 20.733334}
   m_Children:
   - {fileID: 1948158694}
@@ -500,6 +500,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573997892804566193, guid: 5f84e6adb90033e4d92810d607800294,
+        type: 3}
+      propertyPath: starMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a382eec48ff4004b8b52af909aec796, type: 2}
+    - target: {fileID: 1573997892804566193, guid: 5f84e6adb90033e4d92810d607800294,
+        type: 3}
+      propertyPath: starColors.Array.data[0].b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573997892804566193, guid: 5f84e6adb90033e4d92810d607800294,
+        type: 3}
+      propertyPath: intensity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f84e6adb90033e4d92810d607800294, type: 3}
