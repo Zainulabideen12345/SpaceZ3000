@@ -34,7 +34,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.up = _player.transform.position - transform.position;
+        if(_player != null)
+        {
+            transform.up = _player.transform.position - transform.position;
+        }
     }
 
     private void OnDestroy()

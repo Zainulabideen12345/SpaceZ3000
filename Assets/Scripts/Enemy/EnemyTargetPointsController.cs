@@ -14,7 +14,7 @@ public class EnemyTargetPointsController : MonoBehaviour
     private float ticks;
     private int assignedPoints;
 
-    void Start()
+    void Awake()
     {
         if(controller != null)
         {
