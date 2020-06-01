@@ -10,8 +10,8 @@ public class EnemyTargetPointsController : MonoBehaviour
     private const float PointDistance = 5;
 
     private GameObject[] targetPoints = new GameObject[PointsToSpawn];
-    float ticks;
 
+    private float ticks;
     private int assignedPoints;
 
     void Start()
