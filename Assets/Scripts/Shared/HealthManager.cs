@@ -54,6 +54,14 @@ namespace DefaultNamespace
             _healths?.Find(health => health.healthBarColor == newHealth.healthBarColor)?.RemoveHealthComponent(newHealth);
         }
 
+        public void DealFractionDamage(float fraction)
+        {
+            float maxHealth = _healths.Sum(h => h.initialHeath);
+            int damage = (int) (maxHealth * fraction);
+
+            DealDamage(damage);
+        }
+
         public void DealDamage(int damage)
         {
             if(HasShield()) return;

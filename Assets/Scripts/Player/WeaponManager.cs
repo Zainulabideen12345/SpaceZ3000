@@ -64,10 +64,14 @@ public class WeaponManager : MonoBehaviour
 
     private void SetWeapon1()
     {
-        isUsingWeapon1 = true; isUsingWeapon2 = false;
+        playerHitScanShooting?.StopShooting();
+        isUsingWeapon1 = true; 
+        isUsingWeapon2 = false;
     }
     private void SetWeapon2()
     {
-        isUsingWeapon1 = false; isUsingWeapon2 = true;
+        bulletShooting?.StopShooting();
+        isUsingWeapon1 = false; 
+        isUsingWeapon2 = true;
     }
 }
