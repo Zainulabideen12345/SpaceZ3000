@@ -24,10 +24,22 @@ public class Enemy : MonoBehaviour
         _player = GameObject.Find("Player");
 
         gameObject.AddComponent<AIDestinationSetter>();
-        GetComponent<AIDestinationSetter>().target = _player.transform;
+        GetComponent<AIDestinationSetter>().target = EnemyTargetPointsController.GetUniquePoint();
+
         InvokeRepeating(nameof(Shoot), .5f, 1f / attackSpeed);
-    }  
-  
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(_player != null)
+        {
+            transform.up = _player.transform.position - transform.position;
+        }
+    }
+
     private void OnDestroy()
     {
         
