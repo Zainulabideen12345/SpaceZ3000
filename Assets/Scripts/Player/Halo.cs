@@ -10,9 +10,11 @@ namespace DefaultNamespace
         [SerializeField] private float changingSpeed = 10f;
         [SerializeField] private int haloDamage = 100;
         [SerializeField] private float TimeToDestroy =1f;
+        [SerializeField] private GameObject haloParticle;
 
         private IEnumerator Start()
         {
+            Instantiate(haloParticle, transform.position, transform.rotation);
             AudioManager.instance.Play("HaloCast");
             yield return new WaitForSeconds(TimeToDestroy);
             Destroy(gameObject);

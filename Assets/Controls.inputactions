@@ -76,6 +76,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "UseMines",
+                    "type": "Button",
+                    "id": "81b57cb4-868c-4f72-9542-d7d114018ec1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -285,6 +293,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchWeapon2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f180c6b8-2eff-43d6-838c-046cfb9579e3",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseMines",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

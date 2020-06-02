@@ -51,11 +51,12 @@ public class WeaponManager : MonoBehaviour
         }
          if (isUsingWeapon1 == false && isUsingWeapon2 == true)
         {
-             if(isShooting)
+            if (isShooting)
             {
                 playerHitScanShooting?.StartShooting();
 
-            }else
+            }
+            else
             {
                 playerHitScanShooting?.StopShooting();
             }

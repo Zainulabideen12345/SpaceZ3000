@@ -1800,10 +1800,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2208507073195843625, guid: 8b1ca3e9d810c0248b7ae6b736acf7aa,
-        type: 3}
-      propertyPath: m_RendererIndex
-      value: -1
+    - target: {fileID: 283134617, guid: 8b1ca3e9d810c0248b7ae6b736acf7aa, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 283134617, guid: 8b1ca3e9d810c0248b7ae6b736acf7aa, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 283134618, guid: 8b1ca3e9d810c0248b7ae6b736acf7aa, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 283134618, guid: 8b1ca3e9d810c0248b7ae6b736acf7aa, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 283134618, guid: 8b1ca3e9d810c0248b7ae6b736acf7aa, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2208507073195843628, guid: 8b1ca3e9d810c0248b7ae6b736acf7aa,
         type: 3}

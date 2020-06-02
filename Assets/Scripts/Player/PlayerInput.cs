@@ -89,6 +89,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UseMines"",
+                    ""type"": ""Button"",
+                    ""id"": ""81b57cb4-868c-4f72-9542-d7d114018ec1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -300,6 +308,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""SwitchWeapon2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f180c6b8-2eff-43d6-838c-046cfb9579e3"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseMines"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -317,6 +336,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_PlayerControls_UseFlare = m_PlayerControls.FindAction("UseFlare", throwIfNotFound: true);
         m_PlayerControls_SwitchWeapon1 = m_PlayerControls.FindAction("SwitchWeapon1", throwIfNotFound: true);
         m_PlayerControls_SwitchWeapon2 = m_PlayerControls.FindAction("SwitchWeapon2", throwIfNotFound: true);
+        m_PlayerControls_UseMines = m_PlayerControls.FindAction("UseMines", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -375,6 +395,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_UseFlare;
     private readonly InputAction m_PlayerControls_SwitchWeapon1;
     private readonly InputAction m_PlayerControls_SwitchWeapon2;
+    private readonly InputAction m_PlayerControls_UseMines;
     public struct PlayerControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -388,6 +409,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @UseFlare => m_Wrapper.m_PlayerControls_UseFlare;
         public InputAction @SwitchWeapon1 => m_Wrapper.m_PlayerControls_SwitchWeapon1;
         public InputAction @SwitchWeapon2 => m_Wrapper.m_PlayerControls_SwitchWeapon2;
+        public InputAction @UseMines => m_Wrapper.m_PlayerControls_UseMines;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -424,6 +446,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @SwitchWeapon2.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnSwitchWeapon2;
                 @SwitchWeapon2.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnSwitchWeapon2;
                 @SwitchWeapon2.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnSwitchWeapon2;
+                @UseMines.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseMines;
+                @UseMines.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseMines;
+                @UseMines.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUseMines;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -455,6 +480,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @SwitchWeapon2.started += instance.OnSwitchWeapon2;
                 @SwitchWeapon2.performed += instance.OnSwitchWeapon2;
                 @SwitchWeapon2.canceled += instance.OnSwitchWeapon2;
+                @UseMines.started += instance.OnUseMines;
+                @UseMines.performed += instance.OnUseMines;
+                @UseMines.canceled += instance.OnUseMines;
             }
         }
     }
@@ -470,5 +498,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnUseFlare(InputAction.CallbackContext context);
         void OnSwitchWeapon1(InputAction.CallbackContext context);
         void OnSwitchWeapon2(InputAction.CallbackContext context);
+        void OnUseMines(InputAction.CallbackContext context);
     }
 }

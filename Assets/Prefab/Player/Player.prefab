@@ -438,18 +438,23 @@ MonoBehaviour:
   ShootingPoint_back: {fileID: 2113711755}
   missilePrefab: {fileID: 8467928475802994179, guid: 35c158a2156d80d4da34487dd8dafb7b,
     type: 3}
-  haloPrefab: {fileID: 880043136441965841, guid: 07bdaf48da9f44f4bbd80e3a2d4af4d8,
+  haloPrefab: {fileID: 8477248502257869179, guid: e0ccd844a4d30e9449c5c2c4c529873e,
     type: 3}
   flarePrefab: {fileID: 2691449484579456636, guid: 8c26cd4b301887b42a39804d0c809873,
     type: 3}
+  minePrefab: {fileID: 3745880151896979429, guid: 5ed4bf66908c861468f3039aa5f14406,
+    type: 3}
   MissileAmount: 15
+  minesAmount: 3
   TimeBetweenMissiles: 0.3
   TimeBetweenFlares: 0.5
+  TimeBetweenMines: 0.5
   energyBar: {fileID: 0}
   initialEnergy: 300
   maxEnergy: 500
   haloEnergyCost: 100
   missileEnergyCost: 25
+  minesEnergyCost: 75
 --- !u!114 &8281463910609087056
 MonoBehaviour:
   m_ObjectHideFlags: 0

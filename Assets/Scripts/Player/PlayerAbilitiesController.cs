@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,18 +12,27 @@ public class PlayerAbilitiesController : MonoBehaviour
     [SerializeField] private GameObject missilePrefab;
     [SerializeField] private GameObject haloPrefab;
     [SerializeField] private GameObject flarePrefab;
+    [SerializeField] private GameObject minePrefab;
+
     [SerializeField] private int MissileAmount;
+    [SerializeField] private int minesAmount = 3;
+
+    [Header("Ability Timings")]
     [SerializeField] private float TimeBetweenMissiles = 1f;
     [SerializeField] private float TimeBetweenFlares = 0.5f;
+    [SerializeField] private float TimeBetweenMines = 0.5f;
 
+    [Header("Energy")]
     [SerializeField] private GameObject energyBar;
     [SerializeField] private int initialEnergy = 300;
     [SerializeField] private int maxEnergy = 500;
-     private int currentEnergy;
+    private int currentEnergy;
 
+    [Header("Ability Costs")]
     [SerializeField] private int haloEnergyCost = 250;
     [SerializeField] private int missileEnergyCost = 25;
-
+    [SerializeField] private int minesEnergyCost = 75;
+    
     private PlayerInput _playerInput;
 
     private void Awake()
@@ -31,8 +41,9 @@ public class PlayerAbilitiesController : MonoBehaviour
         _playerInput.PlayerControls.UseUltimate.performed += ctx => UseUltimateMissile();
         _playerInput.PlayerControls.UseHalo.performed += ctx => UseUltimateHalo();
         _playerInput.PlayerControls.UseFlare.performed += ctx => StartCoroutine(Flare());
+        _playerInput.PlayerControls.UseMines.performed += ctx => UseUltimateMines();
 
-        
+
 
         currentEnergy = initialEnergy;
     }
@@ -65,12 +76,20 @@ public class PlayerAbilitiesController : MonoBehaviour
             StartCoroutine(UltimateMissile());
         }
     }
+    private void UseUltimateMines()
+    {
+        if (currentEnergy >= minesEnergyCost)
+        {
+            currentEnergy -= minesEnergyCost;
+            StartCoroutine(Mines());
+        }
+    }
 
     private IEnumerator UltimateMissile()
     {
         for (int i = 1; i<= MissileAmount; i++)
         {
-            GameObject Ulti = Instantiate(missilePrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
+            var Ulti = Instantiate(missilePrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
 
             yield return new WaitForSeconds(TimeBetweenMissiles);
         }
@@ -80,7 +99,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         if (currentEnergy >= haloEnergyCost)
         {
             currentEnergy -= haloEnergyCost;
-            GameObject Ulti2 = Instantiate(haloPrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
+            var Ulti2 = Instantiate(haloPrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
         }
     }
 
@@ -88,11 +107,17 @@ public class PlayerAbilitiesController : MonoBehaviour
     {
         for (int i = 1; i <= 3; i++)
         {
-            GameObject Ulti3 = Instantiate(flarePrefab, ShootingPoint_back.position, ShootingPoint_back.rotation);
-            yield return new WaitForSeconds(TimeBetweenFlares);
-            Debug.Log("flare!");
-
+            var Ulti3 = Instantiate(flarePrefab, ShootingPoint_back.position, ShootingPoint_back.rotation);
+            yield return new WaitForSeconds(TimeBetweenFlares);      
         }
+    }
+    private IEnumerator Mines()
+    {
+        for (int i = 1; i <=minesAmount; i++)
+        {
+            var Ulti4 = Instantiate(minePrefab, ShootingPoint_back.position, ShootingPoint_back.rotation);
+            yield return new WaitForSeconds(TimeBetweenMines);
+        }      
     }
 
     public void AddEnergy(int energy)
