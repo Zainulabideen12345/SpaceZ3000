@@ -1,6 +1,7 @@
 ﻿using DefaultNamespace;
 using UnityEngine;
 using Pathfinding;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Enemy : MonoBehaviour
     private const int SPRITE_ANGLE_DIFF = 270;
 
     private Rigidbody2D _rb;
-    private GameObject _player;        
+    private GameObject _player;
+    private float _timeToDestroy = 3;
     
 
     // Start is called before the first frame update
@@ -27,9 +29,7 @@ public class Enemy : MonoBehaviour
         GetComponent<AIDestinationSetter>().target = EnemyTargetPointsController.GetUniquePoint();
 
         InvokeRepeating(nameof(Shoot), .5f, 1f / attackSpeed);
-
-
-    }
+    } 
 
     // Update is called once per frame
     void Update()
@@ -42,12 +42,13 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        
-        for (int i = 0; i< deathEffects.Length; i++) 
+     _player?.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);
+
+        foreach (GameObject effect in deathEffects)
         {
-            Instantiate(deathEffects[i], transform.position, transform.rotation);
+            var explosion = Instantiate(effect, transform.position, transform.rotation);
+            Destroy(explosion, _timeToDestroy);
         }
-        _player?.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);       
     }
 
     void FixedUpdate()
@@ -73,4 +74,5 @@ public class Enemy : MonoBehaviour
         }
             AudioManager.instance.Play("Pew");
     }
+    
 }
