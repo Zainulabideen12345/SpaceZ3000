@@ -42,18 +42,13 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        _player?.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);
-        // for (int i = 0; i< deathEffects.Length; i++) 
-        // {
-            var expolsions1 = Instantiate(deathEffects[0], transform.position, transform.rotation);
-            var expolsions2 = Instantiate(deathEffects[1], transform.position, transform.rotation);
-            var expolsions3 = Instantiate(deathEffects[2], transform.position, transform.rotation);
-        // }
-        Destroy(expolsions1, _timeToDestroy);
-        Destroy(expolsions2, _timeToDestroy);
-        Destroy(expolsions3, _timeToDestroy);
+     _player?.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);
 
-
+        foreach (GameObject effect in deathEffects)
+        {
+            var explosion = Instantiate(effect, transform.position, transform.rotation);
+            Destroy(explosion, _timeToDestroy);
+        }
     }
 
     void FixedUpdate()

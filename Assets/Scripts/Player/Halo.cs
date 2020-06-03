@@ -16,7 +16,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-           var halo1 = Instantiate(haloParticle, transform.position, transform.rotation);
+            var halo1 = Instantiate(haloParticle, transform.position, transform.rotation);
             AudioManager.instance.Play("HaloCast");
             
             Destroy(gameObject,_timeToDestroy);
@@ -29,7 +29,6 @@ namespace DefaultNamespace
             _temp.y += changingSpeed * Time.deltaTime;
 
             transform.localScale = _temp;
-
         }
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
