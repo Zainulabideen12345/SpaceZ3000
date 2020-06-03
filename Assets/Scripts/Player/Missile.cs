@@ -20,6 +20,7 @@ namespace DefaultNamespace
         [SerializeField] private float rotateSpeed = 200f;
         [SerializeField] private int missileDamage = 100;
         [SerializeField] private GameObject deathEffect;
+        private float _timetoDestroy = 2f;
         
 
 
@@ -32,7 +33,8 @@ namespace DefaultNamespace
 
         private void OnDestroy()
         {
-            Instantiate(deathEffect, transform.position, transform.rotation);
+            var impactEffect = Instantiate(deathEffect, transform.position, transform.rotation);           
+            Destroy(impactEffect,_timetoDestroy);
         }
 
         private void FixedUpdate()

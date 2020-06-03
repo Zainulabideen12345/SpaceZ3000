@@ -7,12 +7,13 @@ public class AOEspawner : MonoBehaviour
     [SerializeField] private GameObject haloPRefab;
     [SerializeField] private float timeBetweenSpawns = 0.4f;
     [SerializeField] private float timetoDestroy = 4f;
+    private float _timeToDestroy = 10f;
 
 
     void Start()
     {
         StartCoroutine(SpawnAOE());
-        StartCoroutine(Die());
+        Destroy(gameObject, _timeToDestroy);
     }
 
 
@@ -24,14 +25,5 @@ public class AOEspawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
              Destroy(halo);
         }     
-    }
-
-    private IEnumerator Die()
-    {
-        yield return new WaitForSeconds(timetoDestroy);
-        Destroy(gameObject);
-    }
-
-
-    
+    }   
 }

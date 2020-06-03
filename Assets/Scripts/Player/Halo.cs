@@ -9,15 +9,18 @@ namespace DefaultNamespace
         private Vector2 _temp;
         [SerializeField] private float changingSpeed = 10f;
         [SerializeField] private int haloDamage = 100;
-        [SerializeField] private float TimeToDestroy =1f;
+        
         [SerializeField] private GameObject haloParticle;
+        private float _timeToDestroy = 1f;
+        private float _particleDestroy = 5f;
 
-        private IEnumerator Start()
+        private void Start()
         {
-            Instantiate(haloParticle, transform.position, transform.rotation);
+           var halo1 = Instantiate(haloParticle, transform.position, transform.rotation);
             AudioManager.instance.Play("HaloCast");
-            yield return new WaitForSeconds(TimeToDestroy);
-            Destroy(gameObject);
+            
+            Destroy(gameObject,_timeToDestroy);
+            Destroy(halo1,_particleDestroy);
         }
         void Update()
         {
