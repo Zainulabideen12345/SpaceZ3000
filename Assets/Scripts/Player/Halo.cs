@@ -16,11 +16,11 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            var halo1 = Instantiate(haloParticle, transform.position, transform.rotation);
+            var haloEffect = Instantiate(haloParticle, transform.position, transform.rotation);
             AudioManager.instance.Play("HaloCast");
             
             Destroy(gameObject,_timeToDestroy);
-            Destroy(halo1,_particleDestroy);
+            Destroy(haloEffect,_particleDestroy);
         }
         void Update()
         {
