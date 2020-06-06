@@ -1,6 +1,4 @@
 ﻿using DefaultNamespace;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +12,15 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(DealZoneDamage), 0f, Zone.GetDamageInterval());
+        if (Zone.Exists)
+        {
+            InvokeRepeating(nameof(DealZoneDamage), 0f, Zone.GetDamageInterval());
+        }
     }
    
     private void DealZoneDamage()
     {
-        if (Zone.IsOutside(transform.position))
+        if (Zone.Exists && Zone.IsOutside(transform.position))
         {
             GetComponent<HealthManager>().DealFractionDamage(Zone.GetFractionDamage());
         }

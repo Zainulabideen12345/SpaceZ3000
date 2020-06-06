@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
@@ -19,7 +17,8 @@ public class Zone : MonoBehaviour
     [SerializeField] private float shrinkOnTickFraction;
     [SerializeField] private float shrinkTickRate;
     private float shrinkOnTickAmount;
-    
+
+    public static bool Exists => instance != null;
 
     void Awake()
     {
@@ -43,7 +42,8 @@ public class Zone : MonoBehaviour
         if (currentRadious > finalRadious)
         {
             currentRadious -= shrinkOnTickAmount;
-        } else
+        }
+        else
         {
             CancelInvoke();
         }
