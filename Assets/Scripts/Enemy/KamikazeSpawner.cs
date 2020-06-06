@@ -24,11 +24,10 @@ public class KamikazeSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (_enemy != null && _spawnAnimation == null&& minEnemyNumber<=maxEnemyNumber)
+
+        if (_enemy != null && _spawnAnimation == null && minEnemyNumber <= maxEnemyNumber)
         {
-           
-         SpawnEnemy();
+            SpawnEnemy();
             minEnemyNumber++;
         }
     }
@@ -42,6 +41,7 @@ public class KamikazeSpawner : MonoBehaviour
     private void SpawnAnimationPrefab()
     {
         _spawnAnimation = Instantiate(spawnAnimationPrefab, transform.position, transform.rotation) as GameObject;
+        _spawnAnimation.transform.parent = EnemyObjectsController.AnimationHolder;
     }
 
     private void SpawnEnemyPrefab()
@@ -50,6 +50,7 @@ public class KamikazeSpawner : MonoBehaviour
         for (int i = 1; i <= enemySpawnNumber; i++)
         {
             _enemy = Instantiate(enemyPrefab, transform.position, transform.rotation) as GameObject;
+            _enemy.transform.parent = EnemyObjectsController.EnemyHolder;
         }
     }
     private void OnDestroy()
