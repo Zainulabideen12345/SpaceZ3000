@@ -31,6 +31,11 @@ public class EnemyTargetPointsController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(PlayerTransform == null)
+        {
+            return;
+        }
+
         ticks++;
         transform.position = PlayerTransform.position;
 
