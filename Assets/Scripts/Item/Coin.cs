@@ -39,6 +39,6 @@ public class Coin : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBeforeFlies);
         _collider.isTrigger = true;        
-        _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _target = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
     }
 }
