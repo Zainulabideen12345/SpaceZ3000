@@ -404,5 +404,5 @@ MonoBehaviour:
       type: 3}
     dropChanceRate: 200
   maxMoneyAmount: 4
-  coinPrefab: {fileID: 7053948340244715917, guid: 2e478cd84165bb844bb3a79dd9d5ba40,
+  coinPrefab: {fileID: 1413141222265694506, guid: 45d2ac72bf5611f46947c7103abdd9f1,
     type: 3}

@@ -11,6 +11,21 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/ChoseScene.unity
+    guid: a7071144b28bd374494146ab805c9275
+  - enabled: 1
+    path: Assets/Scenes/MainDemo.unity
+    guid: 841bcaf6206f7d745b8ebc46e9cbac19
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: aa82ec8d6e52a104eaa900aa005d94b6
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/BasicScene.unity
+    guid: daa60f5d3aa95ad41becc9c1a88e19c8
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/ZoneDemo.unity
+    guid: 5a7d875cfa28ea943aa6fc3d0df90a87
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d2e7a1cc140378a4eb14c184dd298063,
       type: 2}

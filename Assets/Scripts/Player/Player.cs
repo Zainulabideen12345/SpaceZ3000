@@ -7,18 +7,16 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Text showCoinsAmount;
-    private int coins=0;
+    public Text showKillsAmount;
+    private int _coins;
+    private int _kills;
+    private static int kills = 0;
 
     private void Start()
     {
         InvokeRepeating(nameof(DealZoneDamage), 0f, Zone.GetDamageInterval());
     }
-
-    void Update()
-    {
-        showCoinsAmount.text = coins.ToString();
-    }
-
+   
     private void DealZoneDamage()
     {
         if (Zone.IsOutside(transform.position))
@@ -29,6 +27,13 @@ public class Player : MonoBehaviour
 
     public void AddCoins(int amountAdded)
     {
-        coins += amountAdded;
+        _coins += amountAdded;
+        showCoinsAmount.text = _coins.ToString();
+    }
+
+    public void AddKills()
+    {
+        _kills++;
+        showKillsAmount.text = _kills.ToString();
     }
 }

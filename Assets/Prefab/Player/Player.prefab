@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showCoinsAmount: {fileID: 0}
+  showKillsAmount: {fileID: 0}
 --- !u!50 &7902272921661894564
 Rigidbody2D:
   serializedVersion: 4
