@@ -532,7 +532,7 @@ MonoBehaviour:
   TimeBetweenMissiles: 0.3
   TimeBetweenFlares: 0.5
   TimeBetweenMines: 0.5
-  energyBar: {fileID: 0}
+  energyLevelBar: {fileID: 0}
   initialEnergy: 300
   maxEnergy: 500
   haloEnergyCost: 100

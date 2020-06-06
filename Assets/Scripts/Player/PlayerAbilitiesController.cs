@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerAbilitiesController : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PlayerAbilitiesController : MonoBehaviour
     [SerializeField] private float TimeBetweenMines = 0.5f;
 
     [Header("Energy")]
-    [SerializeField] private GameObject energyBar;
+    [SerializeField] private Image energyLevelBar;
     [SerializeField] private int initialEnergy = 300;
     [SerializeField] private int maxEnergy = 500;
     private int currentEnergy;
@@ -55,7 +56,7 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     private void UpdateEnergyBar()
     {
-        energyBar.transform.Find("Bar").localScale = new Vector3((float)currentEnergy/maxEnergy, 1f, 1f);
+        energyLevelBar.transform.localScale = new Vector3((float)currentEnergy/maxEnergy, 1f, 1f);
     }
 
     private void OnEnable()
