@@ -10,7 +10,7 @@ public class EnemyObjectsController : MonoBehaviour
 
     public Transform animationHolder;
 
-    void Start()
+    void Awake()
     {
         _controller = this;    
     }

@@ -10,7 +10,7 @@ public class MiscellaneousObjectsController : MonoBehaviour
 
     public Transform pickupHolder;
 
-    void Start()
+    void Awake()
     {
         _controller = this;
     }
