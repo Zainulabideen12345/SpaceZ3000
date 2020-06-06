@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3901605019121925432}
   - component: {fileID: 3901605019121925433}
   - component: {fileID: 618322912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,4 +99,4 @@ MonoBehaviour:
   initialRadious: 50
   finalRadious: 15
   shrinkOnTickFraction: 0.001
-  shrinkTickRate: 0.01
+  shrinkTickRate: 0.001
