@@ -8,14 +8,14 @@ namespace DefaultNamespace
         protected override void Start()
         {
             base.Start();
-            AudioManager.instance.Play("PlayerRocket"); 
+            AudioManager.Play("PlayerRocket"); 
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.GetComponent<Enemy>())
             {
-                AudioManager.instance.Play("EnemyHit");
+                AudioManager.Play("EnemyHit");
 
                 var health = collision.gameObject.GetComponent<HealthManager>();
                 health.DealDamage(damageValue);

@@ -7,13 +7,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Sound[] sounds;
     private IDictionary<string, Sound> soundsDictionary = new Dictionary<string, Sound>();
 
-    public static AudioManager instance;
+    private static AudioManager _instance;
 
     void Awake()
     {
-        if (instance == null)
+        if (_instance == null)
         {
-            instance = this;
+            _instance = this;
         }
         else
         {
@@ -35,9 +35,9 @@ public class AudioManager : MonoBehaviour
         Play("MainTheme");
     }
 
-    public void Play(string name)
+    public static void Play(string name)
     {
-        if (soundsDictionary.TryGetValue(name, out Sound sound))
+        if (_instance.soundsDictionary.TryGetValue(name, out Sound sound))
         {
             sound.Play();
         }

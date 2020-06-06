@@ -90,6 +90,6 @@ public class Enemy : MonoBehaviour
             bullet2.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
         }
 
-        AudioManager.instance.Play("Pew");
+        AudioManager.Play("Pew");
     }
 }

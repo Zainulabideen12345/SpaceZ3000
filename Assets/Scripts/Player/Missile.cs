@@ -26,7 +26,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            AudioManager.instance.Play("PlayerRocket");
+            AudioManager.Play("PlayerRocket");
             _trail = GetComponent<TrailRenderer>();
             _rb = GetComponent<Rigidbody2D>();
         }
@@ -67,7 +67,7 @@ namespace DefaultNamespace
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             if (enemy != null)
             {
-                AudioManager.instance.Play("EnemyHit");
+                AudioManager.Play("EnemyHit");
                 var health = hitInfo.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(missileDamage);
 

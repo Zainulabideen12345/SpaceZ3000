@@ -48,7 +48,7 @@ namespace DefaultNamespace
             var player = hitInfo.GetComponent<Player>();
             if (player != null)
             {
-                AudioManager.instance.Play("PlayerHit");
+                AudioManager.Play("PlayerHit");
 
                 var health = hitInfo.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(missileDamage);

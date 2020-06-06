@@ -37,4 +37,9 @@ public class Player : MonoBehaviour
         _kills++;
         showKillsAmount.text = _kills.ToString();
     }
+
+    private void OnDestroy()
+    {
+        GameController.OnGameOver();
+    }
 }
