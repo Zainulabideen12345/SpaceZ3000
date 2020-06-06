@@ -87,6 +87,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         for (int i = 1; i<= MissileAmount; i++)
         {
             var Ulti = Instantiate(missilePrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
+            Ulti.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
 
             yield return new WaitForSeconds(TimeBetweenMissiles);
         }
@@ -97,6 +98,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         {
             currentEnergy -= haloEnergyCost;
             var Ulti2 = Instantiate(haloPrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
+            Ulti2.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
         }
     }
 
@@ -105,6 +107,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         for (int i = 1; i <= 3; i++)
         {
             var Ulti3 = Instantiate(flarePrefab, ShootingPoint_back.position, ShootingPoint_back.rotation);
+            Ulti3.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
             yield return new WaitForSeconds(TimeBetweenFlares);      
         }
     }
@@ -113,6 +116,7 @@ public class PlayerAbilitiesController : MonoBehaviour
         for (int i = 1; i <=minesAmount; i++)
         {
             var Ulti4 = Instantiate(minePrefab, ShootingPoint_back.position, ShootingPoint_back.rotation);
+            Ulti4.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
             yield return new WaitForSeconds(TimeBetweenMines);
         }      
     }

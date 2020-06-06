@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
         foreach (GameObject effect in deathEffects)
         {
             var explosion = Instantiate(effect, transform.position, transform.rotation);
+            explosion.transform.parent = MiscellaneousObjectsController.ExplosionHolder;
             Destroy(explosion, _timeToDestroy);
         }
     }
@@ -85,6 +86,8 @@ public class Enemy : MonoBehaviour
 
             bullet1.GetComponent<Projectile>().SetVelocity(transform.up);
             bullet2.GetComponent<Projectile>().SetVelocity(transform.up);
+            bullet1.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
+            bullet2.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
         }
 
         AudioManager.instance.Play("Pew");

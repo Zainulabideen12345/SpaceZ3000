@@ -37,15 +37,14 @@ public class DropManager : MonoBehaviour
 
         for(int i =1;i<=randomNumb;i++)
         {
-            Instantiate(coinPrefab, transform.position, transform.rotation);
+            var money = Instantiate(coinPrefab, transform.position, transform.rotation);
+            money.transform.parent = MiscellaneousObjectsController.PickupHolder;
         }
     }
 
-
-
-
     private void Drop (Droppable d)
     {
-        Instantiate(d.itemPrefab, gameObject.transform.position, Quaternion.identity);
+        var drop = Instantiate(d.itemPrefab, gameObject.transform.position, Quaternion.identity);
+        drop.transform.parent = MiscellaneousObjectsController.PickupHolder;
     }
 }

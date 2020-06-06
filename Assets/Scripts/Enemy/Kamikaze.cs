@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -18,7 +14,7 @@ namespace DefaultNamespace
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            target = GameObject.FindGameObjectWithTag("Player")?.transform;
             
         }
         private void FixedUpdate()
