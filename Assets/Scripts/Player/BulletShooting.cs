@@ -32,6 +32,7 @@ public class BulletShooting : MonoBehaviour
         while (true)
         {
             var bullet = Instantiate(playerBullet, midShooting.position, midShooting.rotation);
+            bullet.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
 
             bullet.GetComponent<Projectile>().SetVelocity(transform.up);
 

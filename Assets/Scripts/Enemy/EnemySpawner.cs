@@ -34,11 +34,13 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnAnimationPrefab()
     {
         _spawnAnimation = Instantiate(spawnAnimationPrefab, transform.position, transform.rotation) as GameObject;
+        _spawnAnimation.transform.parent = EnemyObjectsController.AnimationHolder;
     }
 
     private void SpawnEnemyPrefab()
     {
         Destroy(_spawnAnimation);
         _enemy = Instantiate(enemyPrefab, transform.position, transform.rotation) as GameObject;
+        _enemy.transform.parent = EnemyObjectsController.EnemyHolder;
     }
 }

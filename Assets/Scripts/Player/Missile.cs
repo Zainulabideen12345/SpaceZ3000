@@ -33,7 +33,8 @@ namespace DefaultNamespace
 
         private void OnDestroy()
         {
-            var impactEffect = Instantiate(deathEffect, transform.position, transform.rotation);           
+            var impactEffect = Instantiate(deathEffect, transform.position, transform.rotation);     
+            impactEffect.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
             Destroy(impactEffect,_timetoDestroy);
         }
 

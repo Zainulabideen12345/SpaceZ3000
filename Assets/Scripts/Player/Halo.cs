@@ -17,6 +17,7 @@ namespace DefaultNamespace
         private void Start()
         {
             var haloEffect = Instantiate(haloParticle, transform.position, transform.rotation);
+            haloEffect.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
             AudioManager.instance.Play("HaloCast");
             
             Destroy(gameObject,_timeToDestroy);

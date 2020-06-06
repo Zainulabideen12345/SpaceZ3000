@@ -19,11 +19,12 @@ public class AOEspawner : MonoBehaviour
 
     private IEnumerator SpawnAOE()
     {
-        for (int i= 1;i<=10; i++)
+        for (int i = 1; i <= 10; i++)
         {
             var halo = Instantiate(haloPRefab, transform.position, transform.rotation);
+            halo.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
             yield return new WaitForSeconds(timeBetweenSpawns);
-             Destroy(halo);
-        }     
-    }   
+            Destroy(halo);
+        }
+    }
 }
