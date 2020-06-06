@@ -6,12 +6,17 @@ public class Minimap : MonoBehaviour
 {
     private GameObject _player;
 
-    private void LateUpdate()
+    private void Start()
     {
         _player = GameObject.Find("Player");
-
-        Vector3 newPosition = _player.transform.position;
-        newPosition.z = transform.position.z;
-        transform.position = newPosition;
+    }
+    private void LateUpdate()
+    {
+        if (_player != null)
+        {
+            Vector3 newPosition = _player.transform.position;
+            newPosition.z = transform.position.z;
+            transform.position = newPosition;
+        }
     }
 }

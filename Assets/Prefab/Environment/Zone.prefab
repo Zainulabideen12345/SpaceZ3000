@@ -99,4 +99,4 @@ MonoBehaviour:
   initialRadious: 50
   finalRadious: 15
   shrinkOnTickFraction: 0.001
-  shrinkTickRate: 0.01
+  shrinkTickRate: 0.001
