@@ -44,8 +44,8 @@ public class Enemy : MonoBehaviour
     {
         if(_player != null)
         {
-            _player?.GetComponent<PlayerAbilitiesController>().AddEnergy(energyAmountAdded);
-            _player?.GetComponent<Player>().AddKills();
+            _player?.GetComponent<Player>().AddEnergy(energyAmountAdded);
+            GameController.IncrementKillCount();
         }
         
         foreach (GameObject effect in deathEffects)

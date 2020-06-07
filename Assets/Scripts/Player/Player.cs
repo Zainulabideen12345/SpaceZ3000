@@ -1,14 +1,14 @@
 ﻿using DefaultNamespace;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public Text showCoinsAmount;
-    public Text showKillsAmount;
-    private int _coins;
-    private int _kills;
-    private static int kills = 0;
+    [Header("Energy")]
+    [SerializeField] private int initialEnergy = 300;
+    [SerializeField] private int maxEnergy = 500;
+    private int _currentEnergy;
 
     private void Start()
     {
@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
         {
             InvokeRepeating(nameof(DealZoneDamage), 0f, Zone.GetDamageInterval());
         }
+
+        _currentEnergy = initialEnergy;
     }
    
     private void DealZoneDamage()
@@ -26,20 +28,31 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddCoins(int amountAdded)
-    {
-        _coins += amountAdded;
-        showCoinsAmount.text = _coins.ToString();
-    }
-
-    public void AddKills()
-    {
-        _kills++;
-        showKillsAmount.text = _kills.ToString();
-    }
-
     private void OnDestroy()
     {
         GameController.OnGameOver();
+    }
+
+    public void AddEnergy(int amount)
+    {
+        _currentEnergy += amount;
+        if (_currentEnergy > maxEnergy)
+        {
+            _currentEnergy = maxEnergy;
+        }
+    }
+    public void SpendEnergy(int amount)
+    {
+        _currentEnergy -= amount;
+    }
+
+    public int GetCurrentEnergy()
+    {
+        return _currentEnergy;
+    }
+
+    public float GetCurrentEnergyPercentage()
+    {
+        return (float) _currentEnergy / maxEnergy;
     }
 }

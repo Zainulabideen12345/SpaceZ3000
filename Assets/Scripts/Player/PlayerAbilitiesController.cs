@@ -19,40 +19,23 @@ public class PlayerAbilitiesController : MonoBehaviour
     [SerializeField] private float TimeBetweenFlares = 0.5f;
     [SerializeField] private float TimeBetweenMines = 0.5f;
 
-    [Header("Energy")]
-    [SerializeField] private Image energyLevelBar;
-    [SerializeField] private int initialEnergy = 300;
-    [SerializeField] private int maxEnergy = 500;
-    private int currentEnergy;
-
     [Header("Ability Costs")]
     [SerializeField] private int haloEnergyCost = 250;
     [SerializeField] private int missileEnergyCost = 25;
     [SerializeField] private int minesEnergyCost = 75;
-    
+
+    private Player _player;
     private PlayerInput _playerInput;
 
     private void Awake()
     {
+        _player = GetComponent<Player>();
+
         _playerInput = new PlayerInput();
         _playerInput.PlayerControls.UseUltimate.performed += ctx => UseUltimateMissile();
         _playerInput.PlayerControls.UseHalo.performed += ctx => UseUltimateHalo();
         _playerInput.PlayerControls.UseFlare.performed += ctx => StartCoroutine(Flare());
         _playerInput.PlayerControls.UseMines.performed += ctx => UseUltimateMines();
-
-
-
-        currentEnergy = initialEnergy;
-    }
-
-    private void Update()
-    {
-        UpdateEnergyBar();
-    }
-
-    private void UpdateEnergyBar()
-    {
-        energyLevelBar.transform.localScale = new Vector3((float)currentEnergy/maxEnergy, 1f, 1f);
     }
 
     private void OnEnable()
@@ -67,17 +50,17 @@ public class PlayerAbilitiesController : MonoBehaviour
 
     private void UseUltimateMissile()
     {
-        if (currentEnergy >= missileEnergyCost)
+        if (_player.GetCurrentEnergy() >= missileEnergyCost)
         {
-            currentEnergy -= missileEnergyCost;
+            _player.SpendEnergy(missileEnergyCost);
             StartCoroutine(UltimateMissile());
         }
     }
     private void UseUltimateMines()
     {
-        if (currentEnergy >= minesEnergyCost)
+        if (_player.GetCurrentEnergy() >= minesEnergyCost)
         {
-            currentEnergy -= minesEnergyCost;
+            _player.SpendEnergy(minesEnergyCost);
             StartCoroutine(Mines());
         }
     }
@@ -94,9 +77,9 @@ public class PlayerAbilitiesController : MonoBehaviour
     }
     void UseUltimateHalo()
     {
-        if (currentEnergy >= haloEnergyCost)
+        if (_player.GetCurrentEnergy() >= haloEnergyCost)
         {
-            currentEnergy -= haloEnergyCost;
+            _player.SpendEnergy(haloEnergyCost);
             var Ulti2 = Instantiate(haloPrefab, ShootingPoint_Mid.position, ShootingPoint_Mid.rotation);
             Ulti2.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
         }
@@ -119,14 +102,5 @@ public class PlayerAbilitiesController : MonoBehaviour
             Ulti4.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
             yield return new WaitForSeconds(TimeBetweenMines);
         }      
-    }
-
-    public void AddEnergy(int energy)
-    {
-        currentEnergy += energy;
-        if (currentEnergy > maxEnergy)
-        {
-            currentEnergy = maxEnergy;
-        }
     }
 }
