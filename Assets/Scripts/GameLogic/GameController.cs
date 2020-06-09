@@ -14,8 +14,6 @@ public class GameController : MonoBehaviour
     {
         _instance = this;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (EnemyObjectsController.AllEnemiesDead)
@@ -29,23 +27,8 @@ public class GameController : MonoBehaviour
         UIController.ShowGameOverPanel(false);
     }
 
-    public static void IncrementKillCount()
-    {
-        _killCount++;
-    }
-
-    public static int GetKillCount()
-    {
-        return _killCount;
-    }
-
-    public static void AddCurrency(int amount)
-    {
-        _currencyAmount += amount;
-    }
-
-    public static int GetCurrencyAmount()
-    {
-        return _currencyAmount;
-    }
+    public static void IncrementKillCount() => _killCount++;
+    public static int GetKillCount() => _killCount;
+    public static void AddCurrency(int amount) => _currencyAmount += amount;
+    public static int GetCurrencyAmount() => _currencyAmount;
 }
