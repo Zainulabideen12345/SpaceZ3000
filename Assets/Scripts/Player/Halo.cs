@@ -18,7 +18,7 @@ namespace DefaultNamespace
         {
             var haloEffect = Instantiate(haloParticle, transform.position, transform.rotation);
             haloEffect.transform.parent = MiscellaneousObjectsController.ProjectilesHolder;
-            AudioManager.instance.Play("HaloCast");
+            AudioManager.Play("HaloCast");
             
             Destroy(gameObject,_timeToDestroy);
             Destroy(haloEffect,_particleDestroy);
@@ -36,7 +36,7 @@ namespace DefaultNamespace
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             if (enemy != null)
             {
-                AudioManager.instance.Play("HaloHit");
+                AudioManager.Play("HaloHit");
                 var health = hitInfo.gameObject.GetComponent<HealthManager>();
                 health?.DealDamage(haloDamage);
 

@@ -47,7 +47,7 @@ Material:
     - Vector1_80197CA4: 0.1
     - Vector1_A8388601: 0.015
     - _EnableExternalAlpha: 0
-    - _Radious: 35
+    - _Radious: 500
     m_Colors:
     - Color_9DA50C3B: {r: 1.1892071, g: 0, b: 0.12838367, a: 0.21960784}
     - Color_FB322A10: {r: 2.828427, g: 0, b: 0.18856181, a: 1}

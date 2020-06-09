@@ -7,12 +7,12 @@ namespace DefaultNamespace
         int damage = 50;
         public static void ShootSingle(Vector3 shootPosition, Vector3 shootDirection, float distance, int damage)
         {
-            AudioManager.instance.Play("Pew");
+            AudioManager.Play("Pew");
             var raycast = Physics2D.Raycast(shootPosition, shootDirection, distance, LayerMask.GetMask("Enemy"));
 
             if (!raycast.collider) return;
 
-            AudioManager.instance.Play("EnemyHit");
+            AudioManager.Play("EnemyHit");
             var health = raycast.collider.gameObject.GetComponent<HealthManager>();
             health?.DealDamage(damage);
         }

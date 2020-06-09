@@ -20,4 +20,6 @@ public class EnemyObjectsController : MonoBehaviour
     public static Transform SpawnerHolder => _controller.spawnerHolder;
 
     public static Transform AnimationHolder => _controller.animationHolder;
+
+    public static bool AllEnemiesDead => _controller.enemyHolder.childCount == 0;
 }

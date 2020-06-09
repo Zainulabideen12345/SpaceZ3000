@@ -8,10 +8,10 @@ public class EnergyDrop : MonoBehaviour
     [SerializeField] private int energyValue = 100;
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.gameObject.GetComponent<Player>() != null)
+        Player player = hitInfo.gameObject.GetComponent<Player>();
+        if (player!= null)
         {
-            var playerAbilitiesController = hitInfo.gameObject.GetComponent<PlayerAbilitiesController>();
-            playerAbilitiesController?.AddEnergy(energyValue);
+            player.AddEnergy(energyValue);
             Destroy(gameObject);
         }
     }

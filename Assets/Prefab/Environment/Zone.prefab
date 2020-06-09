@@ -98,5 +98,5 @@ MonoBehaviour:
   damageInterval: 0.5
   initialRadious: 50
   finalRadious: 15
-  shrinkOnTickFraction: 0.001
-  shrinkTickRate: 0.001
+  shrinkOnTickFraction: 0.0001
+  shrinkTickRate: 0.01

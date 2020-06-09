@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] private float speed = 40;
     [SerializeField] private int rotateSpeed = 400;
-    [SerializeField] private int moneyAmount = 10;
+    [SerializeField] private int currencyAmount = 10;
     [SerializeField] private float timeBeforeFlies = 1f;
     private BoxCollider2D _collider;
     private Transform _target;
@@ -30,7 +30,7 @@ public class Coin : MonoBehaviour
     {     
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().AddCoins(moneyAmount);          
+            GameController.AddCurrency(currencyAmount);          
             Destroy(gameObject);
         }
     }
